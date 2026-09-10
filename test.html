@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">Р</span>
+        <span class="logo__text">
+          <span class="logo__title">Тесты по русскому языку</span>
+          <span class="logo__subtitle">Онлайн-тренажёр для 5–11 классов</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container container--test">
+    <a class="back-link" href="index.html">Все тесты</a>
+
+    <div class="test-head">
+      <p class="test-meta"></p>
+      <h1 class="test-title"></h1>
+      <p class="notice">
+        Ответьте на все задания, затем нажмите «Проверить» — результат
+        появится сразу по всему тесту.
+      </p>
+    </div>
+
+    <div class="questions"></div>
+
+    <section class="result" hidden>
+      <div class="result__ring">
+        <span class="result__percent"></span>
+      </div>
+      <div class="result__body">
+        <p class="result__score"></p>
+        <p class="result__message"></p>
+        <button class="button button--ghost retry-button" type="button">Пройти заново</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="actionbar">
+    <div class="container actionbar__inner">
+      <div class="progress">
+        <p class="progress__label">Отвечено <span class="progress__value">0 из 0</span></p>
+        <div class="progress__track"><div class="progress__bar"></div></div>
+      </div>
+      <button class="button check-button" type="button">Проверить</button>
+    </div>
+  </div>
+
+  <script src="js/checker.js?v=2"></script>
+  <script src="js/test-page.js?v=2"></script>
+</body>
+</html>
