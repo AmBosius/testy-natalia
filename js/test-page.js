@@ -70,7 +70,9 @@ function renderQuestion(question, index) {
     input.name = 'q' + question.id;
     input.autocomplete = 'off';
     input.placeholder =
-      question.type === 'sentence-number' ? 'Номер предложения' : 'Ответ';
+      question.type === 'sentence-number' ? 'Номер предложения'
+      : question.type === 'digits' ? 'Цифры без пробелов, например: 134'
+      : 'Ответ';
     body.append(input);
 
     if (question.hint) {

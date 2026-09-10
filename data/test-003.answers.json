@@ -1,0 +1,7 @@
+{
+  "answers": {
+    "1": { "correct": ["23"], "digitSet": true },
+    "2": { "correct": ["2"], "digitSet": true },
+    "3": { "correct": [1] }
+  }
+}
