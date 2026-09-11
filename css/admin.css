@@ -1,0 +1,227 @@
+.container--admin {
+  padding-bottom: 60px;
+}
+
+.admin-title {
+  margin: 0 0 20px;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+.admin-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.admin-head .admin-title {
+  margin: 0;
+}
+
+/* Форма входа */
+
+.login-view {
+  max-width: 380px;
+  margin: 60px auto 0;
+}
+
+.login-form {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.login-error {
+  margin: 0;
+  color: var(--wrong);
+  font-size: 14px;
+}
+
+/* Общие поля форм */
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field--narrow {
+  max-width: 160px;
+}
+
+.field__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.field__hint {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.field__input {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  background: #fbfbfa;
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(47, 79, 189, 0.12);
+}
+
+textarea.field__input {
+  resize: vertical;
+}
+
+.field-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.field-row .field {
+  flex: 1;
+  min-width: 160px;
+}
+
+.test-form,
+.question-form {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.button--danger {
+  background: transparent;
+  color: var(--wrong);
+  border: 1px solid var(--wrong);
+}
+
+.button--danger:hover {
+  background: var(--wrong-bg);
+}
+
+/* Списки тестов/заданий */
+
+.admin-list {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.admin-row__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.admin-row__title {
+  font-weight: 600;
+}
+
+.admin-row__meta {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.admin-row__actions {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+/* Варианты ответа в форме задания */
+
+.options-field {
+  display: grid;
+  gap: 8px;
+}
+
+.options-list {
+  display: grid;
+  gap: 8px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.option-row input[type="text"] {
+  flex: 1;
+}
+
+.option-row__remove {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.option-row__remove:hover {
+  border-color: var(--wrong);
+  color: var(--wrong);
+}
+
+.add-option-button {
+  justify-self: start;
+  padding: 6px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.add-option-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+@media (max-width: 640px) {
+  .admin-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .admin-row__actions {
+    justify-content: flex-end;
+  }
+}

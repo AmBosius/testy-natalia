@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админка — Тесты по русскому языку</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/admin.css?v=1">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">Р</span>
+        <span class="logo__text">
+          <span class="logo__title">Тесты по русскому языку</span>
+          <span class="logo__subtitle">Админка</span>
+        </span>
+      </a>
+      <button class="button button--ghost logout-button" type="button" hidden>Выйти</button>
+    </div>
+  </header>
+
+  <main class="container container--admin">
+
+    <section class="login-view">
+      <h1 class="admin-title">Вход в админку</h1>
+      <form class="login-form">
+        <label class="field">
+          <span class="field__label">Email</span>
+          <input class="field__input" type="email" name="email" autocomplete="username" required>
+        </label>
+        <label class="field">
+          <span class="field__label">Пароль</span>
+          <input class="field__input" type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <p class="login-error" hidden></p>
+        <button class="button" type="submit">Войти</button>
+      </form>
+    </section>
+
+    <section class="tests-view" hidden>
+      <div class="admin-head">
+        <h1 class="admin-title">Тесты</h1>
+        <button class="button add-test-button" type="button">+ Новый тест</button>
+      </div>
+      <div class="admin-list tests-list"></div>
+    </section>
+
+    <section class="test-form-view" hidden>
+      <button class="back-link back-to-tests" type="button">Все тесты</button>
+      <h1 class="admin-title test-form-title">Новый тест</h1>
+      <form class="test-form">
+        <input type="hidden" name="id">
+        <label class="field">
+          <span class="field__label">Название</span>
+          <input class="field__input" type="text" name="title" required>
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span class="field__label">Раздел</span>
+            <select class="field__input" name="section" required></select>
+          </label>
+          <label class="field">
+            <span class="field__label">Тема</span>
+            <input class="field__input" type="text" name="topic" required>
+          </label>
+          <label class="field field--narrow">
+            <span class="field__label">Сложность</span>
+            <select class="field__input" name="level" required>
+              <option value="1">Базовый</option>
+              <option value="2">Средний</option>
+              <option value="3">Сложный</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button class="button" type="submit">Сохранить</button>
+          <button class="button button--danger delete-test-button" type="button" hidden>Удалить тест</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="questions-view" hidden>
+      <button class="back-link back-to-tests" type="button">Все тесты</button>
+      <div class="admin-head">
+        <h1 class="admin-title questions-title"></h1>
+        <button class="button add-question-button" type="button">+ Задание</button>
+      </div>
+      <div class="admin-list questions-list"></div>
+    </section>
+
+    <section class="question-form-view" hidden>
+      <button class="back-link back-to-questions" type="button">К заданиям</button>
+      <h1 class="admin-title">Задание</h1>
+      <form class="question-form">
+        <input type="hidden" name="id">
+        <input type="hidden" name="test_id">
+
+        <label class="field">
+          <span class="field__label">Тип задания</span>
+          <select class="field__input" name="type" required>
+            <option value="choice">Выбор варианта</option>
+            <option value="sentence-number">Номер предложения</option>
+            <option value="word">Слово / словосочетание</option>
+            <option value="digits">Цифры (набор, без порядка)</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Текст задания</span>
+          <textarea class="field__input" name="text" rows="2" required></textarea>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Текст/предложение к заданию (необязательно)</span>
+          <textarea class="field__input" name="passage" rows="3"></textarea>
+        </label>
+
+        <div class="options-field" hidden>
+          <span class="field__label">Варианты ответа — отметьте правильный</span>
+          <div class="options-list"></div>
+        </div>
+
+        <label class="field answer-field" hidden>
+          <span class="field__label answer-field__label">Верный ответ</span>
+          <input class="field__input" type="text" name="answer">
+          <span class="field__hint answer-field__hint"></span>
+        </label>
+
+        <label class="field hint-field" hidden>
+          <span class="field__label">Подсказка ученику (необязательно)</span>
+          <input class="field__input" type="text" name="hint">
+        </label>
+
+        <div class="form-actions">
+          <button class="button" type="submit">Сохранить</button>
+          <button class="button button--danger delete-question-button" type="button" hidden>Удалить задание</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="js/supabase-client.js?v=3"></script>
+  <script src="js/admin.js?v=1"></script>
+</body>
+</html>
