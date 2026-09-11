@@ -1,0 +1,767 @@
+Смоук-тест на 1 задании (model=deepseek-v4.1-flash)...
+[1/1] 4CE844: не конвертируемо (convertible=False)
+Смоук-тест ок, обрабатываю остальное...
+[1/7989] 42554F: type=word correct=['раскрываются', 'распустятся'] review=True conf=medium
+[2/7989] 43324B: не конвертируемо (convertible=False)
+[3/7989] 42514D: не конвертируемо (convertible=False)
+[4/7989] 457E45: type=sentence-number correct=['1'] review=False conf=high
+[5/7989] 4C6D49: type=word correct=['зарделись алмазами', 'капли росы', 'звуки колокола', 'промчался мимо меня'] review=True conf=medium
+[6/7989] 40CA4E: type=choice correct=[3] review=False conf=high
+[7/7989] 4A9543: type=digits correct=['34'] review=False conf=high
+[8/7989] 470348: type=sentence-number correct=['1'] review=False conf=high
+[9/7989] 451748: не конвертируемо (convertible=False)
+[10/7989] FA764A: type=word correct=['наконец', 'в конце концов'] review=True conf=medium
+[11/7989] F5BC4A: не конвертируемо (convertible=False)
+[12/7989] F7124C: type=choice correct=[1] review=False conf=high
+[13/7989] F20849: type=word correct=['сдерживать'] review=True conf=medium
+[14/7989] F74246: type=word correct=['Однако'] review=False conf=high
+[15/7989] F67D46: type=sentence-number correct=['1'] review=False conf=high
+[16/7989] F5D943: type=word correct=['а, е, е, а, е, е, е, я, а, е'] review=True conf=medium
+[17/7989] F92E48: не конвертируемо (convertible=False)
+[18/7989] 04E141: type=choice correct=[2] review=False conf=high
+[19/7989] 06BA45: не конвертируемо (convertible=False)
+[20/7989] 03D045: type=sentence-number correct=['2'] review=False conf=high
+[21/7989] 045045: type=word correct=['пианист'] review=False conf=high
+[22/7989] 0FC34A: не конвертируемо (convertible=False)
+[23/7989] 06624A: не конвертируемо (convertible=False)
+[24/7989] 0C354C: не конвертируемо (convertible=False)
+[25/7989] 021443: type=sentence-number correct=['1'] review=False conf=high
+[26/7989] 74E04F: не конвертируемо (convertible=False)
+[27/7989] 71CC40: не конвертируемо (convertible=False)
+[28/7989] 7B1842: не конвертируемо (convertible=False)
+[29/7989] 730C4D: type=choice correct=[3] review=False conf=high
+[30/7989] 70AF4D: type=choice correct=[0] review=False conf=high
+[31/7989] 7AB44A: type=choice correct=[2] review=False conf=high
+[32/7989] 7A4949: не конвертируемо (convertible=False)
+[33/7989] 7A9B4E: type=choice correct=[0] review=False conf=high
+[34/7989] 752F46: type=choice correct=[1] review=False conf=high
+[35/7989] 77A943: не конвертируемо (convertible=False)
+[36/7989] 73F548: type=choice correct=[2] review=False conf=high
+[37/7989] B38644: type=word correct=['суд'] review=False conf=high
+[38/7989] BFF240: не конвертируемо (convertible=False)
+[39/7989] B4CE40: не конвертируемо (convertible=False)
+[40/7989] B52F47: type=word correct=['презабавное'] review=False conf=high
+[41/7989] BB2C41: не конвертируемо (convertible=False)
+[42/7989] BAAB41: не конвертируемо (convertible=False)
+[43/7989] BE0842: не конвертируемо (convertible=False)
+[44/7989] B1D042: type=choice correct=[0] review=False conf=high
+[45/7989] BC4C45: не конвертируемо (convertible=False)
+[46/7989] B9C145: не конвертируемо (convertible=False)
+[47/7989] B6674A: type=choice correct=[0] review=False conf=high
+[48/7989] BF2C4C: не конвертируемо (convertible=False)
+[49/7989] B5904E: не конвертируемо (convertible=False)
+[50/7989] BC654E: не конвертируемо (convertible=False)
+[51/7989] 107344: не конвертируемо (convertible=False)
+[52/7989] 11144F: не конвертируемо (convertible=False)
+[53/7989] 15A04F: type=choice correct=[1] review=False conf=high
+[54/7989] 168240: не конвертируемо (convertible=False)
+[55/7989] 1D6947: не конвертируемо (convertible=False)
+[56/7989] 194641: type=word correct=['промахиваемся', 'промазываем', 'не попадаем'] review=True conf=medium
+[57/7989] 120E41: type=word correct=['крановщик', 'каменщик', 'верстальщик', 'переводчик', 'дрессировщик'] review=True conf=medium
+[58/7989] 1B9345: не конвертируемо (convertible=False)
+[59/7989] 198245: не конвертируемо (convertible=False)
+[60/7989] 184F4A: type=word correct=['авиация, акварель, багряный, герой, желать, капитан, коричневый, лиловый, пейзаж, салют, сиреневый, стадион, трибуна, впечатление, фестиваль, шофёр'] review=True conf=medium
+[61/7989] 1D9746: не конвертируемо (convertible=False)
+[62/7989] 1AB448: не конвертируемо (convertible=False)
+[63/7989] 145348: type=sentence-number correct=['2'] review=False conf=high
+[64/7989] 19E348: не конвертируемо (convertible=False)
+[65/7989] 2F9A44: не конвертируемо (convertible=False)
+[66/7989] 2C474F: type=word correct=['дядина'] review=False conf=high
+[67/7989] 25014B: не конвертируемо (convertible=False)
+[68/7989] 252F4B: type=word correct=['вырисовывается'] review=False conf=high
+[69/7989] 2E5341: не конвертируемо (convertible=False)
+[70/7989] 2E7942: type=word correct=['н', 'ов'] review=True conf=medium
+[71/7989] 26964D: type=choice correct=[1] review=False conf=high
+[72/7989] 210745: не конвертируемо (convertible=False)
+[73/7989] 28DA4A: не конвертируемо (convertible=None)
+[74/7989] 2E584A: type=sentence-number correct=['13'] review=False conf=high
+[75/7989] D90644: type=choice correct=[0] review=False conf=high
+[76/7989] D72E44: не конвертируемо (convertible=None)
+[77/7989] DEF44F: type=choice correct=[3] review=False conf=high
+[78/7989] D3B14F: type=word correct=['инквизитор'] review=False conf=high
+[79/7989] DA334F: type=word correct=['изобретённый, изобретение; т//ч'] review=True conf=medium
+[80/7989] D7F547: type=word correct=['легкоатлет'] review=False conf=high
+[81/7989] D71647: type=word correct=['антресоль'] review=False conf=high
+[82/7989] DB2547: не конвертируемо (convertible=False)
+[83/7989] D2A74D: не конвертируемо (convertible=False)
+[84/7989] DE9B4D: не конвертируемо (convertible=False)
+[85/7989] D7884D: type=choice correct=[3] review=False conf=high
+[86/7989] DB7045: type=digits correct=['245'] review=False conf=high
+[87/7989] D6624C: type=word correct=['только'] review=False conf=high
+[88/7989] DC0649: не конвертируемо (convertible=False)
+[89/7989] D9D349: type=word correct=['ГАБВ'] review=False conf=high
+[90/7989] D3524E: не конвертируемо (convertible=False)
+[91/7989] 521E44: не конвертируемо (convertible=False)
+[92/7989] 51474F: type=choice correct=[1] review=False conf=high
+[93/7989] 5C224F: type=digits correct=['1356'] review=False conf=high
+[94/7989] 5E0142: type=sentence-number correct=['5'] review=False conf=high
+[95/7989] 561A45: type=choice correct=[2] review=False conf=high
+[96/7989] 5D1349: не конвертируемо (convertible=False)
+[97/7989] 5F6749: type=choice correct=[2] review=False conf=high
+[98/7989] 5E0946: type=sentence-number correct=['3'] review=False conf=high
+[99/7989] 5E2C46: не конвертируемо (convertible=False)
+[100/7989] 50AA43: не конвертируемо (convertible=False)
+[101/7989] AB3544: type=digits correct=['52637'] review=False conf=high
+[102/7989] AB4147: не конвертируемо (convertible=False)
+[103/7989] A92247: не конвертируемо (convertible=False)
+[104/7989] A3A54B: не конвертируемо (convertible=False)
+[105/7989] AFFA45: type=digits correct=['234'] review=False conf=high
+[106/7989] AA9645: не конвертируемо (convertible=False)
+[107/7989] AAC04C: type=word correct=['куряне, новгородцы, омичи, петербуржцы, вологжане'] review=True conf=medium
+[108/7989] A11A49: type=choice correct=[3] review=False conf=high
+[109/7989] A5C04E: не конвертируемо (convertible=False)
+[110/7989] AFEB4E: не конвертируемо (convertible=False)
+[111/7989] AF1C46: не конвертируемо (convertible=False)
+[112/7989] AB9D46: type=sentence-number correct=['2'] review=False conf=high
+[113/7989] A6B743: не конвертируемо (convertible=False)
+[114/7989] AECB43: не конвертируемо (convertible=False)
+[115/7989] A1B248: не конвертируемо (convertible=False)
+[116/7989] AE3B48: type=word correct=['вечер'] review=False conf=high
+[117/7989] CD2C44: не конвертируемо (convertible=False)
+[118/7989] CDE344: не конвертируемо (convertible=False)
+[119/7989] C73844: не конвертируемо (convertible=False)
+[120/7989] C9B047: type=choice correct=[3] review=False conf=high
+[121/7989] C05941: type=word correct=['берёстою', 'берестою'] review=False conf=high
+[122/7989] C0104D: не конвертируемо (convertible=False)
+[123/7989] C1B44E: не конвертируемо (convertible=False)
+[124/7989] CD4548: не конвертируемо (convertible=False)
+[125/7989] C6B648: type=word correct=['отправились'] review=True conf=medium
+[126/7989] 92A544: type=choice correct=[3] review=False conf=high
+[127/7989] 990240: не конвертируемо (convertible=False)
+[128/7989] 943940: не конвертируемо (convertible=False)
+[129/7989] 956047: type=word correct=['вавилонское столпотворение'] review=True conf=medium
+[130/7989] 9E5E4B: не конвертируемо (convertible=False)
+[131/7989] 900641: не конвертируемо (convertible=False)
+[132/7989] 9C3E41: не конвертируемо (convertible=False)
+[133/7989] 961E4D: type=choice correct=[2] review=False conf=high
+[134/7989] 9E274D: не конвертируемо (convertible=False)
+[135/7989] 9A704A: не конвертируемо (convertible=False)
+[136/7989] 92374A: не конвертируемо (convertible=False)
+[137/7989] 99C749: не конвертируемо (convertible=False)
+[138/7989] 9F4D4E: type=word correct=['пришлось'] review=False conf=high
+[139/7989] 99BB4E: type=sentence-number correct=['6'] review=False conf=high
+[140/7989] 93E24E: не конвертируемо (convertible=False)
+[141/7989] 96F046: type=word correct=['и,е,е,и,е,и,е,е,и,е,е,и,е,и,е,и,е,ь,е,ь'] review=True conf=medium
+[142/7989] 9A0646: type=digits correct=['345'] review=False conf=high
+[143/7989] 9F5643: не конвертируемо (convertible=False)
+[144/7989] E93644: не конвертируемо (convertible=False)
+[145/7989] E0CC4F: type=word correct=['ГАВБ'] review=False conf=high
+[146/7989] E15140: не конвертируемо (convertible=False)
+[147/7989] EF564B: не конвертируемо (convertible=False)
+[148/7989] E72E41: не конвертируемо (convertible=False)
+[149/7989] E4E041: type=digits correct=['267'] review=False conf=high
+[150/7989] E6CA42: type=choice correct=[3] review=False conf=high
+[151/7989] E6E24D: type=word correct=['галантный'] review=False conf=high
+[152/7989] EB8D45: type=word correct=['вслух', 'нагрелся', 'подряд'] review=True conf=low
+[153/7989] E1574A: type=word correct=['жонглёр'] review=False conf=high
+[154/7989] E15B4A: type=word correct=['есть неограниченный властитель, царь предложения'] review=True conf=medium
+[155/7989] E4BA4C: не конвертируемо (convertible=False)
+[156/7989] E3214C: не конвертируемо (convertible=False)
+[157/7989] E23C4C: не конвертируемо (convertible=False)
+[158/7989] E1BB49: не конвертируемо (convertible=False)
+[159/7989] E93A49: type=choice correct=[1] review=False conf=high
+[160/7989] E5774E: не конвертируемо (convertible=False)
+[161/7989] E2234E: type=choice correct=[0] review=False conf=high
+[162/7989] E34746: type=word correct=['Кроме того'] review=False conf=high
+[163/7989] E2C146: не конвертируемо (convertible=False)
+[164/7989] ED4C48: type=digits correct=['24'] review=False conf=high
+[165/7989] EA4148: type=choice correct=[3] review=False conf=high
+[166/7989] EE2A48: не конвертируемо (convertible=False)
+[167/7989] E49A48: не конвертируемо (convertible=False)
+[168/7989] 649644: type=choice correct=[0] review=False conf=high
+[169/7989] 633C44: не конвертируемо (convertible=False)
+[170/7989] 6E274F: не конвертируемо (convertible=False)
+[171/7989] 63E34F: type=word correct=['березового'] review=False conf=high
+[172/7989] 60614F: type=choice correct=[2] review=False conf=high
+[173/7989] 62644B: не конвертируемо (convertible=False)
+[174/7989] 61434D: type=choice correct=[0] review=False conf=high
+[175/7989] 62454A: type=word correct=['Наконец'] review=False conf=high
+[176/7989] 60D44A: type=word correct=['прыгун'] review=True conf=medium
+[177/7989] 68994A: type=choice correct=[0] review=False conf=high
+[178/7989] 67874A: type=word correct=['синонимы', 'антонимы', 'омонимы', 'фразеологизм'] review=False conf=high
+[179/7989] 68174C: type=word correct=['бальзам'] review=False conf=high
+[180/7989] 6E934C: type=choice correct=[3] review=False conf=high
+[181/7989] 689C4C: не конвертируемо (convertible=False)
+[182/7989] 66914E: type=digits correct=['12781112'] review=True conf=medium
+[183/7989] 674346: type=choice correct=[2] review=False conf=high
+[184/7989] 68D343: type=choice correct=[1] review=False conf=high
+[185/7989] 6FF448: не конвертируемо (convertible=False)
+[186/7989] 6BD548: не конвертируемо (convertible=False)
+[187/7989] 6D5448: type=digits correct=['523'] review=False conf=high
+[188/7989] 63A848: не конвертируемо (convertible=False)
+[189/7989] 663148: не конвертируемо (convertible=False)
+[190/7989] 37D744: не конвертируемо (convertible=False)
+[191/7989] 3CE544: type=word correct=['огромной работе'] review=True conf=medium
+[192/7989] 343144: type=sentence-number correct=['2'] review=False conf=high
+[193/7989] 3BE44F: не конвертируемо (convertible=False)
+[194/7989] 30634F: не конвертируемо (convertible=False)
+[195/7989] 348C4F: не конвертируемо (convertible=False)
+[196/7989] 3C5D40: type=choice correct=[1] review=False conf=high
+[197/7989] 300147: не конвертируемо (convertible=False)
+[198/7989] 3EC147: type=word correct=['палки'] review=False conf=high
+[199/7989] 37994B: не конвертируемо (convertible=False)
+[200/7989] 3EA741: type=word correct=['ночевать, проповедовать, докладывать, рассматривать, растаять, видел, заметил, примерил, затеял, маскировать'] review=False conf=high
+[201/7989] 389F41: type=choice correct=[1] review=False conf=high
+[202/7989] 328341: не конвертируемо (convertible=False)
+[203/7989] 39EA42: type=choice correct=[0] review=False conf=high
+[204/7989] 35DE45: не конвертируемо (convertible=False)
+[205/7989] 3B704A: type=word correct=['ВБГА'] review=False conf=high
+[206/7989] 35CE4A: не конвертируемо (convertible=False)
+[207/7989] 31B84C: не конвертируемо (convertible=False)
+[208/7989] 3F5D4C: не конвертируемо (convertible=False)
+[209/7989] 316149: type=word correct=['трусливый'] review=False conf=high
+[210/7989] 342A4E: не конвертируемо (convertible=False)
+[211/7989] 347646: type=choice correct=[0] review=False conf=high
+[212/7989] 3B0A43: не конвертируемо (convertible=False)
+[213/7989] 873D44: type=word correct=['присесть'] review=False conf=high
+[214/7989] 853C44: не конвертируемо (convertible=False)
+[215/7989] 80B140: type=word correct=['литератор'] review=False conf=high
+[216/7989] 871B47: не конвертируемо (convertible=False)
+[217/7989] 8CC947: не конвертируемо (convertible=False)
+[218/7989] 8E0742: не конвертируемо (convertible=False)
+[219/7989] 82B94D: не конвертируемо (convertible=False)
+[220/7989] 843A45: type=choice correct=[3] review=False conf=high
+[221/7989] 81CA49: не конвертируемо (convertible=False)
+[222/7989] 8AA246: type=word correct=['пани — женский род, денди — мужской род, тюль — мужской род, шампунь — мужской род, КВН — мужской род'] review=False conf=high
+[223/7989] 8D8F48: type=word correct=['за-хлоп-а-л'] review=True conf=medium
+[224/7989] 43BBF4: type=choice correct=[0] review=False conf=high
+[225/7989] 48D0FF: не конвертируемо (convertible=False)
+[226/7989] 450CF0: type=choice correct=[1] review=False conf=high
+[227/7989] 4FADF7: не конвертируемо (convertible=False)
+[228/7989] 4078FB: не конвертируемо (convertible=False)
+[229/7989] 460DFA: не конвертируемо (convertible=False)
+[230/7989] 44DFFA: type=word correct=['коснутся'] review=False conf=high
+[231/7989] 4AE8FE: type=choice correct=[3] review=False conf=high
+[232/7989] 4860FE: не конвертируемо (convertible=False)
+[233/7989] 4F85FE: не конвертируемо (convertible=False)
+[234/7989] 4F89F3: type=word correct=['сиреневый, милостивый, реснитчатый, помещичий, доверчивый, увёртливый, красненький, орфографический, сухонький'] review=True conf=medium
+[235/7989] 4549F8: не конвертируемо (convertible=False)
+[236/7989] 484CF8: не конвертируемо (convertible=False)
+[237/7989] F4B5FF: type=choice correct=[3] review=False conf=high
+[238/7989] FBB2FF: не конвертируемо (convertible=False)
+[239/7989] F337FF: не конвертируемо (convertible=False)
+[240/7989] FE67FB: не конвертируемо (convertible=False)
+[241/7989] F782FB: type=choice correct=[2] review=False conf=high
+[242/7989] F969F2: type=sentence-number correct=['5'] review=False conf=high
+[243/7989] F946FD: не конвертируемо (convertible=False)
+[244/7989] F561FD: не конвертируемо (convertible=False)
+[245/7989] FC51FA: type=word correct=['ветерок — ветер', 'шевельнул — шевелит', 'вылетела — полёт', 'показался — покажется', 'цветок — цвет'] review=True conf=medium
+[246/7989] F605F9: не конвертируемо (convertible=False)
+[247/7989] FF45FE: type=word correct=['сверх'] review=False conf=high
+[248/7989] F507FE: type=word correct=['вишнёвый'] review=False conf=high
+[249/7989] F090FE: type=choice correct=[0] review=False conf=high
+[250/7989] FE90F6: type=word correct=['перехваченная'] review=False conf=high
+[251/7989] F368F6: type=word correct=['береговая ива', 'толстая ива', 'ветла', 'верба'] review=True conf=medium
+[252/7989] FBC6F3: не конвертируемо (convertible=False)
+[253/7989] F8A2F8: type=choice correct=[2] review=False conf=high
+[254/7989] F0C3F8: type=word correct=['сосновая шишка'] review=True conf=medium
+[255/7989] F56EF8: не конвертируемо (convertible=False)
+[256/7989] F886F8: не конвертируемо (convertible=False)
+[257/7989] 01C3FF: не конвертируемо (convertible=False)
+[258/7989] 0E5DF0: type=choice correct=[2] review=False conf=high
+[259/7989] 06F1F7: не конвертируемо (convertible=False)
+[260/7989] 0A1CF7: type=choice correct=[3] review=True conf=medium
+[261/7989] 0DF6F1: не конвертируемо (convertible=False)
+[262/7989] 0118F1: type=word correct=['сатирик'] review=False conf=high
+[263/7989] 0B01F2: не конвертируемо (convertible=False)
+[264/7989] 0F8DF2: не конвертируемо (convertible=False)
+[265/7989] 0F18FD: type=choice correct=[2] review=False conf=high
+[266/7989] 0CFAF5: type=choice correct=[0] review=False conf=high
+[267/7989] 0290FA: не конвертируемо (convertible=False)
+[268/7989] 01BEFC: type=word correct=['БГАВ'] review=False conf=high
+[269/7989] 0961FC: type=sentence-number correct=['2'] review=False conf=high
+[270/7989] 0B7CF9: не конвертируемо (convertible=False)
+[271/7989] 0E54FE: не конвертируемо (convertible=False)
+[272/7989] 0CBAF8: не конвертируемо (convertible=False)
+[273/7989] 7F76F4: type=word correct=['её'] review=True conf=medium
+[274/7989] 7D8CF4: type=choice correct=[0] review=False conf=high
+[275/7989] 7A4FFF: type=digits correct=['2143'] review=False conf=high
+[276/7989] 7234FF: не конвертируемо (convertible=False)
+[277/7989] 7E1CF0: type=word correct=['малопомалу'] review=False conf=high
+[278/7989] 7398F0: не конвертируемо (convertible=False)
+[279/7989] 7140F7: не конвертируемо (convertible=False)
+[280/7989] 7ABAFB: не конвертируемо (convertible=False)
+[281/7989] 7E94F1: type=word correct=['убедить', 'очутиться', 'обезлюдить', 'чудить'] review=False conf=high
+[282/7989] 7BE9FA: type=choice correct=[0] review=False conf=high
+[283/7989] 7687FC: type=word correct=['фанфары'] review=True conf=medium
+[284/7989] 767EFE: type=sentence-number correct=['2'] review=False conf=high
+[285/7989] 75AAFE: не конвертируемо (convertible=False)
+[286/7989] 719CFE: не конвертируемо (convertible=False)
+[287/7989] 7F5FF6: не конвертируемо (convertible=False)
+[288/7989] 7921F3: не конвертируемо (convertible=False)
+[289/7989] BB18F7: не конвертируемо (convertible=False)
+[290/7989] B562F7: не конвертируемо (convertible=False)
+[291/7989] BE56F1: type=digits correct=['12'] review=False conf=high
+[292/7989] B485F1: type=word correct=['атлетка'] review=True conf=medium
+[293/7989] BC87F1: type=choice correct=[0] review=False conf=high
+[294/7989] B54DF2: не конвертируемо (convertible=False)
+[295/7989] B8A4F2: не конвертируемо (convertible=False)
+[296/7989] BBCBFD: не конвертируемо (convertible=False)
+[297/7989] BD79F5: не конвертируемо (convertible=False)
+[298/7989] BA7AF5: type=choice correct=[3] review=False conf=high
+[299/7989] B718FC: не конвертируемо (convertible=False)
+[300/7989] B16FFC: не конвертируемо (convertible=False)
+[301/7989] BEC8F9: не конвертируемо (convertible=False)
+[302/7989] BF5BFE: type=word correct=['возник'] review=False conf=high
+[303/7989] B1EBFE: type=word correct=['подымется'] review=True conf=medium
+[304/7989] BFFBF6: type=choice correct=[0] review=False conf=high
+[305/7989] BDF1F3: type=digits correct=['12'] review=False conf=high
+[306/7989] 1011F4: type=word correct=['её'] review=False conf=high
+[307/7989] 175BFB: type=sentence-number correct=['1'] review=False conf=high
+[308/7989] 106EFB: type=word correct=['туда', 'меня', 'за собой', 'несколько', 'мы', 'оба'] review=False conf=high
+[309/7989] 1E34FB: не конвертируемо (convertible=False)
+[310/7989] 1741F1: type=choice correct=[2] review=False conf=high
+[311/7989] 1E7EF5: не конвертируемо (convertible=False)
+[312/7989] 1DD9F5: type=word correct=['напротив'] review=False conf=high
+[313/7989] 1C6FF5: type=digits correct=['4'] review=False conf=high
+[314/7989] 163CFA: не конвертируемо (convertible=False)
+[315/7989] 1F1DFC: не конвертируемо (convertible=False)
+[316/7989] 10C8FC: type=word correct=['неслыханное', 'нескошенные'] review=False conf=high
+[317/7989] 120AF9: не конвертируемо (convertible=False)
+[318/7989] 1150FE: не конвертируемо (convertible=False)
+[319/7989] 1468F6: не конвертируемо (convertible=False)
+[320/7989] 21BBF4: type=choice correct=[0] review=False conf=high
+[321/7989] 2AC2F4: type=word correct=['гаплология'] review=False conf=high
+[322/7989] 2711FF: не конвертируемо (convertible=False)
+[323/7989] 253FFF: type=choice correct=[0] review=False conf=high
+[324/7989] 2E26F7: не конвертируемо (convertible=False)
+[325/7989] 2962F7: type=word correct=['усиливающийся'] review=False conf=high
+[326/7989] 25D2F1: type=choice correct=[0] review=False conf=high
+[327/7989] 2D17F2: не конвертируемо (convertible=False)
+[328/7989] 27EDF2: не конвертируемо (convertible=False)
+[329/7989] 2D3CFD: не конвертируемо (convertible=False)
+[330/7989] 2E88FD: не конвертируемо (convertible=False)
+[331/7989] 287AFC: не конвертируемо (convertible=False)
+[332/7989] 2443F9: type=sentence-number correct=['4'] review=False conf=high
+[333/7989] 217CFE: не конвертируемо (convertible=False)
+[334/7989] 2D26FE: type=word correct=['утверждал'] review=False conf=high
+[335/7989] 27E3FE: type=sentence-number correct=['3'] review=False conf=high
+[336/7989] 2B9EF3: не конвертируемо (convertible=False)
+[337/7989] 2222F8: type=word correct=['Поэтому', 'Следовательно', 'Таким образом'] review=True conf=medium
+[338/7989] D3ACF4: type=word correct=['друг', 'давно', 'нет', 'всегда', 'близкого', 'отделить', 'самого', 'себя', 'вместе', 'смогла', 'захватить', 'всё', 'увести'] review=True conf=low
+[339/7989] D7EAF4: type=word correct=['бегунья'] review=True conf=medium
+[340/7989] DB35F4: не конвертируемо (convertible=False)
+[341/7989] D44BFF: не конвертируемо (convertible=False)
+[342/7989] D81AFB: type=word correct=['двойственный, явный, романтичный, дружеский, искусственный, эффективно, осудить, одеть, понятный'] review=True conf=medium
+[343/7989] DF2AFB: не конвертируемо (convertible=False)
+[344/7989] D9D5FB: не конвертируемо (convertible=False)
+[345/7989] D1ADFB: не конвертируемо (convertible=False)
+[346/7989] DFCEFB: не конвертируемо (convertible=False)
+[347/7989] DA68F1: type=choice correct=[0] review=False conf=high
+[348/7989] DBF1F2: не конвертируемо (convertible=False)
+[349/7989] D4A6F2: type=word correct=['незнакомый'] review=False conf=high
+[350/7989] D8CAFD: не конвертируемо (convertible=False)
+[351/7989] DF36FD: не конвертируемо (convertible=False)
+[352/7989] DA64F5: не конвертируемо (convertible=None)
+[353/7989] D122FA: не конвертируемо (convertible=False)
+[354/7989] D01EF9: type=word correct=['двоеборец'] review=True conf=medium
+[355/7989] D91BFE: не конвертируемо (convertible=False)
+[356/7989] D5ADFE: type=sentence-number correct=['1'] review=False conf=high
+[357/7989] D13CF3: type=choice correct=[0] review=False conf=high
+[358/7989] D021F8: не конвертируемо (convertible=False)
+[359/7989] 54C3FF: type=choice correct=[2] review=False conf=high
+[360/7989] 5561FF: не конвертируемо (convertible=None)
+[361/7989] 56E7F0: не конвертируемо (convertible=False)
+[362/7989] 5ED5F7: type=choice correct=[1] review=False conf=high
+[363/7989] 5D96F1: type=word correct=['первом'] review=False conf=high
+[364/7989] 52C4F2: type=word correct=['дрессировщик'] review=False conf=high
+[365/7989] 5394F2: не конвертируемо (convertible=False)
+[366/7989] 5AA9F5: не конвертируемо (convertible=False)
+[367/7989] 5826FA: не конвертируемо (convertible=False)
+[368/7989] 528DFA: не конвертируемо (convertible=False)
+[369/7989] 5F58F9: type=sentence-number correct=['3'] review=False conf=high
+[370/7989] 5FF4F6: не конвертируемо (convertible=False)
+[371/7989] 5155F3: не конвертируемо (convertible=False)
+[372/7989] 5A60F3: не конвертируемо (convertible=False)
+[373/7989] попытка 1 не удалась (HTTP 502: <!DOCTYPE html><html lang=en><meta charset=utf-8><meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width"><title>Error 502</title><style>*{margin:0;padding:0}html{font:15px/22px arial,sans-serif;background: #fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;), жду 0.3с
+[373/7989] попытка 2 не удалась (HTTP 502: <!DOCTYPE html><html lang=en><meta charset=utf-8><meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width"><title>Error 502</title><style>*{margin:0;padding:0}html{font:15px/22px arial,sans-serif;background: #fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;), жду 0.6с
+[373/7989] попытка 3 не удалась (HTTP 502: <!DOCTYPE html><html lang=en><meta charset=utf-8><meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width"><title>Error 502</title><style>*{margin:0;padding:0}html{font:15px/22px arial,sans-serif;background: #fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;), жду 1.2с
+[373/7989] A7D7F4: type=word correct=['задобривать', 'затрагивать', 'обусловливать', 'одалживать', 'оспаривать', 'присваивать', 'сдабривать', 'сосредоточивать', 'удваивать', 'усваивать', 'успокаивать', 'устраивать'] review=True conf=medium
+[374/7989] AB41F0: не конвертируемо (convertible=False)
+[375/7989] AAB6F0: type=digits correct=['345'] review=False conf=high
+[376/7989] A053F0: type=word correct=['олимпиец'] review=False conf=high
+[377/7989] A37AF1: type=choice correct=[1] review=False conf=high
+[378/7989] A17DFD: не конвертируемо (convertible=False)
+[379/7989] A005F5: type=sentence-number correct=['2'] review=False conf=high
+[380/7989] A967F5: type=word correct=['утреннее'] review=False conf=high
+[381/7989] A23EFA: не конвертируемо (convertible=False)
+[382/7989] AFB0FC: type=word correct=['декоратора', 'светооператора', 'антрепренёр'] review=False conf=high
+[383/7989] A2BCF9: type=word correct=['поскольку', 'так как', 'потому что'] review=True conf=medium
+[384/7989] A13AF9: не конвертируемо (convertible=False)
+[385/7989] AA95F6: type=choice correct=[1] review=False conf=high
+[386/7989] A346F3: не конвертируемо (convertible=False)
+[387/7989] CB77F0: не конвертируемо (convertible=False)
+[388/7989] C6E8F0: type=digits correct=['123'] review=False conf=high
+[389/7989] C556F7: type=word correct=['радующими'] review=False conf=high
+[390/7989] C1DAF1: type=choice correct=[0] review=False conf=high
+[391/7989] C8C5F2: type=choice correct=[1] review=False conf=high
+[392/7989] C174F5: не конвертируемо (convertible=False)
+[393/7989] CC7AFC: не конвертируемо (convertible=False)
+[394/7989] CA88FC: не конвертируемо (convertible=False)
+[395/7989] CDEBF9: type=word correct=['поэтому', 'таким образом', 'итак'] review=True conf=medium
+[396/7989] C77CFE: не конвертируемо (convertible=False)
+[397/7989] CDDDFE: не конвертируемо (convertible=False)
+[398/7989] C264F3: не конвертируемо (convertible=False)
+[399/7989] C7E0F8: type=digits correct=['1'] review=True conf=low
+[400/7989] 947CF0: type=digits correct=['12'] review=False conf=high
+[401/7989] 9D3BF7: не конвертируемо (convertible=None)
+[402/7989] 9DE9FB: type=sentence-number correct=['4'] review=True conf=medium
+[403/7989] 9F8AFB: type=digits correct=['143'] review=False conf=high
+[404/7989] 94A1F1: type=word correct=['Поэтому', 'Следовательно', 'Значит', 'Итак'] review=True conf=medium
+[405/7989] 9CC5F2: type=word correct=['аглометр'] review=True conf=medium
+[406/7989] 9FC1FD: не конвертируемо (convertible=False)
+[407/7989] 9AF1FC: type=word correct=['заводчик, разносчик, рассказчик, смазчик, комочек, карманчик, носик, пильщик'] review=True conf=medium
+[408/7989] 9EA0FC: не конвертируемо (convertible=False)
+[409/7989] 9722F9: не конвертируемо (convertible=False)
+[410/7989] 96EEF9: не конвертируемо (convertible=False)
+[411/7989] 903CF6: type=word correct=['В сумерках корабль, занесённый снегом, казался матросам нарядным и лёгким.', 'В сумерках корабль, занесённый снегом, казался матросам нарядным и лёгким'] review=True conf=medium
+[412/7989] 9AB9F3: не конвертируемо (convertible=False)
+[413/7989] 9269F8: type=word correct=['родник', 'родит', 'родина', 'родня'] review=True conf=medium
+[414/7989] E8F7FF: не конвертируемо (convertible=False)
+[415/7989] E002FF: не конвертируемо (convertible=False)
+[416/7989] E31FF7: не конвертируемо (convertible=False)
+[417/7989] E65BF7: не конвертируемо (convertible=False)
+[418/7989] E678FB: type=choice correct=[0] review=False conf=high
+[419/7989] EA2EFB: не конвертируемо (convertible=False)
+[420/7989] EF5CFB: type=choice correct=[2] review=False conf=high
+[421/7989] E369FB: не конвертируемо (convertible=False)
+[422/7989] EFCEF1: type=word correct=['Поэтому'] review=False conf=high
+[423/7989] EAA3FD: не конвертируемо (convertible=False)
+[424/7989] EE4AFA: не конвертируемо (convertible=False)
+[425/7989] E411FA: не конвертируемо (convertible=False)
+[426/7989] ED78FC: не конвертируемо (convertible=False)
+[427/7989] E2ACFC: не конвертируемо (convertible=False)
+[428/7989] EB88F9: type=sentence-number correct=['3'] review=False conf=high
+[429/7989] EF87FE: type=choice correct=[1] review=False conf=high
+[430/7989] ED71F3: не конвертируемо (convertible=False)
+[431/7989] E51EF3: не конвертируемо (convertible=False)
+[432/7989] E3FDF8: не конвертируемо (convertible=False)
+[433/7989] 6F1FF4: type=sentence-number correct=['2', '3'] review=False conf=high
+[434/7989] 6E71FF: type=choice correct=[0] review=False conf=high
+[435/7989] 68DBFF: не конвертируемо (convertible=False)
+[436/7989] 61CBFF: не конвертируемо (convertible=False)
+[437/7989] 6E16F0: не конвертируемо (convertible=False)
+[438/7989] 61ABF0: type=sentence-number correct=['1'] review=False conf=high
+[439/7989] 63AAFB: type=choice correct=[3] review=False conf=high
+[440/7989] 6512F2: не конвертируемо (convertible=False)
+[441/7989] 6C0CF5: не конвертируемо (convertible=False)
+[442/7989] 61E1F5: type=word correct=['вёсла', 'весла'] review=True conf=medium
+[443/7989] 6A69FA: type=choice correct=[2] review=True conf=high
+[444/7989] 605CFC: не конвертируемо (convertible=False)
+[445/7989] 6097FC: type=word correct=['плещется'] review=True conf=medium
+[446/7989] 66BBF9: type=digits correct=['45'] review=False conf=high
+[447/7989] 6DD2F9: type=choice correct=[3] review=False conf=high
+[448/7989] 6529FE: не конвертируемо (convertible=False)
+[449/7989] 6B36FE: type=word correct=['дорога'] review=False conf=high
+[450/7989] 6024F6: не конвертируемо (convertible=False)
+[451/7989] 6BFDF3: type=choice correct=[1] review=False conf=high
+[452/7989] 6EB4F3: type=choice correct=[0] review=False conf=high
+[453/7989] 6A1FF8: type=word correct=['шапитмейстер, униформист, антрепренёр', 'шапитмейстер униформист антрепренёр'] review=True conf=medium
+[454/7989] 37A7F0: не конвертируемо (convertible=False)
+[455/7989] 32F6F1: type=word correct=['Среди них', 'Этот', 'Но', 'его', 'также'] review=True conf=medium
+[456/7989] 3A9CF2: не конвертируемо (convertible=False)
+[457/7989] 363FFD: не конвертируемо (convertible=False)
+[458/7989] 3784F5: не конвертируемо (convertible=False)
+[459/7989] 3650FC: не конвертируемо (convertible=False)
+[460/7989] 3022F9: не конвертируемо (convertible=False)
+[461/7989] 38FEFE: не конвертируемо (convertible=False)
+[462/7989] 3E13F6: type=choice correct=[1] review=False conf=high
+[463/7989] 3D5DF3: type=word correct=['изменяясь', 'именуемого'] review=True conf=medium
+[464/7989] 85EBF4: type=choice correct=[1] review=False conf=high
+[465/7989] 8539F4: type=sentence-number correct=['2'] review=False conf=high
+[466/7989] 85B3FF: type=word correct=['расцветали', 'цветник', 'цветов', 'цветистой'] review=True conf=medium
+[467/7989] 8E2EFF: не конвертируемо (convertible=False)
+[468/7989] 86CDF0: type=sentence-number correct=['2'] review=False conf=high
+[469/7989] 83EEF0: type=digits correct=['АГВБ'] review=False conf=high
+[470/7989] 8789F0: не конвертируемо (convertible=False)
+[471/7989] 8047FB: не конвертируемо (convertible=False)
+[472/7989] 8708F1: не конвертируемо (convertible=False)
+[473/7989] 8AE4F1: не конвертируемо (convertible=False)
+[474/7989] 8866F1: не конвертируемо (convertible=False)
+[475/7989] 8275FD: не конвертируемо (convertible=False)
+[476/7989] 826CF5: type=choice correct=[3] review=False conf=high
+[477/7989] 8201FA: не конвертируемо (convertible=False)
+[478/7989] 8CBDFC: не конвертируемо (convertible=False)
+[479/7989] 8C74F6: type=sentence-number correct=['2'] review=False conf=high
+[480/7989] 8DFAF3: не конвертируемо (convertible=False)
+[481/7989] 477E04: type=digits correct=['245'] review=False conf=high
+[482/7989] 477600: type=sentence-number correct=['4'] review=False conf=high
+[483/7989] 48410B: не конвертируемо (convertible=False)
+[484/7989] 4A7D02: type=word correct=['фильм'] review=False conf=high
+[485/7989] 441A02: type=choice correct=[2] review=False conf=high
+[486/7989] 4D3C02: type=choice correct=[3] review=False conf=high
+[487/7989] 4BCB0D: type=choice correct=[0] review=False conf=high
+[488/7989] 4F8B05: type=word correct=['при этом'] review=False conf=high
+[489/7989] 44410E: не конвертируемо (convertible=False)
+[490/7989] 405706: не конвертируемо (convertible=False)
+[491/7989] 489A03: не конвертируемо (convertible=False)
+[492/7989] 40D108: не конвертируемо (convertible=False)
+[493/7989] 448608: не конвертируемо (convertible=False)
+[494/7989] F3410F: type=choice correct=[2] review=False conf=high
+[495/7989] F62D07: type=choice correct=[0] review=False conf=high
+[496/7989] FDAB01: не конвертируемо (convertible=False)
+[497/7989] F5270D: type=word correct=['час', 'дурака', 'голову', 'здоровую', 'вопрос', 'слёзы', 'камень', 'глаза', 'полку', 'порошок', 'добром', 'в огонь', 'слона', 'и овцы целы', 'своего носа'] review=True conf=medium
+[498/7989] F67B0C: не конвертируемо (convertible=False)
+[499/7989] F54E0E: type=word correct=['гусиный'] review=False conf=high
+[500/7989] FFF80E: не конвертируемо (convertible=False)
+[501/7989] FB0206: не конвертируемо (convertible=False)
+[502/7989] F83A06: не конвертируемо (convertible=False)
+[503/7989] F0CD03: не конвертируемо (convertible=False)
+[504/7989] F8A608: не конвертируемо (convertible=False)
+[505/7989] 07B907: type=word correct=['наоборот'] review=False conf=high
+[506/7989] 015007: type=digits correct=['13'] review=False conf=high
+[507/7989] 0EEC01: type=choice correct=[1] review=False conf=high
+[508/7989] 01EB02: type=choice correct=[0] review=False conf=high
+[509/7989] 00130D: type=choice correct=[2] review=False conf=high
+[510/7989] 0A6A0D: type=digits correct=['134'] review=False conf=high
+[511/7989] 098205: не конвертируемо (convertible=None)
+[512/7989] 0BD40C: type=word correct=['приснилась'] review=True conf=medium
+[513/7989] 07350C: не конвертируемо (convertible=False)
+[514/7989] 0E5209: не конвертируемо (convertible=False)
+[515/7989] 08C909: type=word correct=['каждый', 'маленький', 'держали'] review=True conf=medium
+[516/7989] 065C06: type=word correct=['не', 'и', 'ведь', 'разве', 'только', 'как-то'] review=True conf=medium
+[517/7989] 048206: type=choice correct=[0] review=False conf=high
+[518/7989] 049503: не конвертируемо (convertible=False)
+[519/7989] 71220F: не конвертируемо (convertible=False)
+[520/7989] 7AA80F: type=word correct=['легкоатлет'] review=False conf=high
+[521/7989] 75000B: type=word correct=['балясник'] review=True conf=medium
+[522/7989] 7EF801: type=word correct=['вводное слово', 'вводное слово «впрочем»', 'впрочем'] review=True conf=medium
+[523/7989] 7BD101: не конвертируемо (convertible=False)
+[524/7989] 78BD0D: не конвертируемо (convertible=False)
+[525/7989] 7DB90E: type=digits correct=['24567'] review=True conf=medium
+[526/7989] BDF80F: type=choice correct=[0] review=False conf=high
+[527/7989] BC9E0F: type=digits correct=['2'] review=False conf=high
+[528/7989] B5EA0F: type=choice correct=[1] review=False conf=high
+[529/7989] BF5107: не конвертируемо (convertible=False)
+[530/7989] B5AE07: не конвертируемо (convertible=False)
+[531/7989] BACC07: не конвертируемо (convertible=None)
+[532/7989] B59F07: type=word correct=['вытеснила'] review=False conf=high
+[533/7989] BDDA02: не конвертируемо (convertible=False)
+[534/7989] B7BF0A: не конвертируемо (convertible=False)
+[535/7989] B0210A: type=choice correct=[4] review=False conf=high
+[536/7989] B7450C: не конвертируемо (convertible=False)
+[537/7989] BE6309: не конвертируемо (convertible=False)
+[538/7989] B20C06: не конвертируемо (convertible=False)
+[539/7989] B32203: type=choice correct=[0] review=False conf=high
+[540/7989] B6AD03: type=choice correct=[1] review=True conf=medium
+[541/7989] 179D04: не конвертируемо (convertible=False)
+[542/7989] 17730F: не конвертируемо (convertible=False)
+[543/7989] 1E3307: type=choice correct=[0] review=False conf=high
+[544/7989] 11B90B: type=choice correct=[1] review=False conf=high
+[545/7989] 1A7A01: не конвертируемо (convertible=False)
+[546/7989] 1C490D: не конвертируемо (convertible=False)
+[547/7989] 1DF80A: не конвертируемо (convertible=False)
+[548/7989] 190E0C: не конвертируемо (convertible=False)
+[549/7989] 1A900C: type=choice correct=[3] review=False conf=high
+[550/7989] 124D09: type=choice correct=[1] review=False conf=high
+[551/7989] 1FC309: не конвертируемо (convertible=False)
+[552/7989] 1AAC06: type=word correct=['весенние — вёсны', 'весенние — весна', 'цветов — цвет', 'неслись — нёс', 'весной — вёсны'] review=True conf=medium
+[553/7989] 184903: type=choice correct=[1] review=False conf=high
+[554/7989] 197F03: не конвертируемо (convertible=False)
+[555/7989] 1D6903: type=choice correct=[3] review=False conf=high
+[556/7989] 225B04: type=digits correct=['14'] review=False conf=high
+[557/7989] 216B07: не конвертируемо (convertible=False)
+[558/7989] 2D7C0B: type=word correct=['ВДБГА'] review=False conf=high
+[559/7989] 20670B: type=choice correct=[0] review=False conf=high
+[560/7989] 222505: не конвертируемо (convertible=False)
+[561/7989] 259005: не конвертируемо (convertible=False)
+[562/7989] 22E00A: не конвертируемо (convertible=False)
+[563/7989] 2B6A09: не конвертируемо (convertible=False)
+[564/7989] 215A0E: type=digits correct=['2346'] review=True conf=low
+[565/7989] 28C803: не конвертируемо (convertible=False)
+[566/7989] D85704: не конвертируемо (convertible=False)
+[567/7989] D2420F: type=word correct=['Равнина, напоминающая застывшее море, дремала во мгле.', 'Равнина дремала во мгле, напоминающая застывшее море.'] review=True conf=medium
+[568/7989] D20D00: type=choice correct=[0] review=False conf=high
+[569/7989] D1BA07: не конвертируемо (convertible=False)
+[570/7989] D66902: не конвертируемо (convertible=False)
+[571/7989] DB3F02: type=word correct=['что', 'важнейшая'] review=False conf=high
+[572/7989] D5C705: не конвертируемо (convertible=False)
+[573/7989] DF700A: type=word correct=['кор овье', 'коровье'] review=True conf=medium
+[574/7989] DBA10C: не конвертируемо (convertible=False)
+[575/7989] DB370C: type=word correct=['аморальность', 'безнравственность', ' immoralit\xe9', ' immorality', ' immorality'] review=True conf=low
+[576/7989] D79B09: не конвертируемо (convertible=False)
+[577/7989] DDA10E: не конвертируемо (convertible=False)
+[578/7989] D5DD06: не конвертируемо (convertible=False)
+[579/7989] D75803: type=word correct=['рисовая'] review=False conf=high
+[580/7989] 519F0B: type=sentence-number correct=['45'] review=False conf=high
+[581/7989] 5DE10B: type=sentence-number correct=['4'] review=False conf=high
+[582/7989] 5AC301: type=choice correct=[0] review=False conf=high
+[583/7989] 5C7702: не конвертируемо (convertible=False)
+[584/7989] 5BBD0D: type=choice correct=[3] review=False conf=high
+[585/7989] 56BA0D: не конвертируемо (convertible=False)
+[586/7989] 50CD0D: type=word correct=['впоследствии'] review=False conf=high
+[587/7989] 57E70C: type=choice correct=[1] review=False conf=high
+[588/7989] 5D0906: не конвертируемо (convertible=False)
+[589/7989] 506D03: не конвертируемо (convertible=False)
+[590/7989] AAFC0F: type=word correct=['писатель, водитель, испытатель, строитель, спасатель'] review=False conf=high
+[591/7989] A0B70F: не конвертируемо (convertible=False)
+[592/7989] ACA50F: type=word correct=['безвкусный', 'безрадостный', 'бескрайний', 'бесцветный', 'бесшумный'] review=False conf=high
+[593/7989] A1D90B: не конвертируемо (convertible=False)
+[594/7989] AAE302: не конвертируемо (convertible=False)
+[595/7989] AC2C0C: не конвертируемо (convertible=False)
+[596/7989] AD800E: не конвертируемо (convertible=False)
+[597/7989] A41B06: type=word correct=['цепная'] review=True conf=medium
+[598/7989] AE6E06: не конвертируемо (convertible=False)
+[599/7989] A58D03: не конвертируемо (convertible=False)
+[600/7989] A33B08: не конвертируемо (convertible=False)
+[601/7989] C65304: не конвертируемо (convertible=False)
+[602/7989] C2FE0F: type=digits correct=['145'] review=False conf=high
+[603/7989] C1BC0F: type=word correct=['наречие'] review=False conf=high
+[604/7989] CB7E01: не конвертируемо (convertible=False)
+[605/7989] C1DF01: не конвертируемо (convertible=False)
+[606/7989] C0F50D: type=choice correct=[0] review=False conf=high
+[607/7989] CE1F05: не конвертируемо (convertible=False)
+[608/7989] C3C105: type=word correct=['несомненно'] review=False conf=high
+[609/7989] C7BF09: не конвертируемо (convertible=False)
+[610/7989] C0230E: не конвертируемо (convertible=False)
+[611/7989] C80206: не конвертируемо (convertible=False)
+[612/7989] CAF303: type=digits correct=['126810'] review=True conf=medium
+[613/7989] CBF408: type=word correct=['канатоходец', 'акробат', 'клоун'] review=False conf=high
+[614/7989] C65208: не конвертируемо (convertible=False)
+[615/7989] 97C80F: type=word correct=['жиже', 'жутче', 'ближе', 'бурнее', 'дешевле', 'жесточе', 'куцее'] review=True conf=medium
+[616/7989] 93CF0F: type=word correct=['Таким образом'] review=False conf=high
+[617/7989] 92E30F: не конвертируемо (convertible=False)
+[618/7989] 9B7D07: type=word correct=['гринкипер', 'стрингер', 'комментатор'] review=False conf=high
+[619/7989] 9C5601: не конвертируемо (convertible=False)
+[620/7989] 9C3D02: type=digits correct=['14'] review=False conf=high
+[621/7989] 97C10D: type=choice correct=[2] review=False conf=high
+[622/7989] 9B920D: не конвертируемо (convertible=False)
+[623/7989] 985205: не конвертируемо (convertible=False)
+[624/7989] 994B0A: type=digits correct=['123'] review=False conf=high
+[625/7989] 97D20C: не конвертируемо (convertible=False)
+[626/7989] 919609: type=choice correct=[0] review=False conf=high
+[627/7989] 986209: type=word correct=['эксцентрик'] review=False conf=high
+[628/7989] 99CF03: не конвертируемо (convertible=False)
+[629/7989] EE600F: не конвертируемо (convertible=False)
+[630/7989] E90A00: не конвертируемо (convertible=False)
+[631/7989] EA8707: не конвертируемо (convertible=False)
+[632/7989] EC530B: не конвертируемо (convertible=False)
+[633/7989] EC5C02: type=word correct=['агентство', 'дилетантский', 'здравствовать', 'интриганский', 'компрометировать', 'констатировать', 'предчувствие', 'ровесник', 'сумасшедший', 'участвовать', 'участливый', 'чествовать', 'шествовать', 'явственный'] review=True conf=medium
+[634/7989] E29905: type=choice correct=[0] review=False conf=high
+[635/7989] ED1E09: не конвертируемо (convertible=False)
+[636/7989] E99F06: не конвертируемо (convertible=False)
+[637/7989] E13F06: type=word correct=['мгновение'] review=False conf=high
+[638/7989] E55E03: не конвертируемо (convertible=False)
+[639/7989] E3B408: не конвертируемо (convertible=False)
+[640/7989] 6CBC04: не конвертируемо (convertible=False)
+[641/7989] 67DB04: type=word correct=['словно редкий по красоте цветок из волшебной сказки'] review=False conf=high
+[642/7989] 6AE70F: type=choice correct=[1] review=False conf=high
+[643/7989] 6A4B07: не конвертируемо (convertible=False)
+[644/7989] 69000B: type=digits correct=['48'] review=False conf=high
+[645/7989] 60770B: не конвертируемо (convertible=False)
+[646/7989] 6FBB0B: type=word correct=['вследствие', 'в течение', 'в продолжение', 'на подобие'] review=True conf=medium
+[647/7989] 65FE02: type=word correct=['пурпурные'] review=False conf=high
+[648/7989] 68620D: type=choice correct=[2] review=False conf=high
+[649/7989] 6BC00C: не конвертируемо (convertible=False)
+[650/7989] 631909: не конвертируемо (convertible=False)
+[651/7989] 6B1306: не конвертируемо (convertible=False)
+[652/7989] 629906: type=word correct=['такси'] review=False conf=high
+[653/7989] 6D4D08: type=choice correct=[3] review=False conf=high
+[654/7989] 6AD008: type=word correct=['недруг'] review=False conf=high
+[655/7989] 3BD00F: type=choice correct=[1] review=False conf=high
+[656/7989] 3E310F: не конвертируемо (convertible=False)
+[657/7989] 3C7307: type=word correct=['судья — общий род (мужской и женский)', 'кенгуру — мужской род', 'Сочи — мужской род', 'турне — средний род', 'ваниль — женский род', 'харчо — средний род'] review=True conf=medium
+[658/7989] 324601: не конвертируемо (convertible=False)
+[659/7989] 3DB402: type=choice correct=[3] review=False conf=high
+[660/7989] 309B0A: не конвертируемо (convertible=False)
+[661/7989] 3CF609: не конвертируемо (convertible=False)
+[662/7989] 3C5703: не конвертируемо (convertible=False)
+[663/7989] 3B9003: type=choice correct=[1] review=False conf=high
+[664/7989] 3D6A03: type=word correct=['лишь', 'только'] review=True conf=medium
+[665/7989] 87B904: type=digits correct=['24'] review=False conf=high
+[666/7989] 830D07: не конвертируемо (convertible=False)
+[667/7989] 81750B: не конвертируемо (convertible=False)
+[668/7989] 89A702: type=word correct=['был изумлен'] review=False conf=high
+[669/7989] 80830D: не конвертируемо (convertible=False)
+[670/7989] 800E05: не конвертируемо (convertible=False)
+[671/7989] 801B05: не конвертируемо (convertible=False)
+[672/7989] 842705: type=choice correct=[1] review=False conf=high
+[673/7989] 8ABC0C: не конвертируемо (convertible=False)
+[674/7989] 8C1306: не конвертируемо (convertible=False)
+[675/7989] 82C403: type=digits correct=['2'] review=False conf=high
+[676/7989] 8CCE03: не конвертируемо (convertible=False)
+[677/7989] 866803: type=word correct=['её вещи'] review=True conf=medium
+[678/7989] 803A03: не конвертируемо (convertible=False)
+[679/7989] 8E7C08: type=digits correct=['58'] review=False conf=high
+[680/7989] 4AFA74: type=word correct=['бронировать', 'характерный', 'мука', 'видения', 'остроты'] review=True conf=medium
+[681/7989] 4FFA70: не конвертируемо (convertible=False)
+[682/7989] 48F372: не конвертируемо (convertible=False)
+[683/7989] 4C1272: не конвертируемо (convertible=False)
+[684/7989] 4A6E72: не конвертируемо (convertible=False)
+[685/7989] 45247D: не конвертируемо (convertible=False)
+[686/7989] 40E97D: type=choice correct=[0] review=False conf=high
+[687/7989] 45CF75: type=digits correct=['235'] review=False conf=high
+[688/7989] 4D9375: type=choice correct=[2] review=False conf=high
+[689/7989] 4C1579: type=word correct=['изучение, осознание'] review=False conf=high
+[690/7989] 490C73: не конвертируемо (convertible=False)
+[691/7989] 4F0B78: не конвертируемо (convertible=False)
+[692/7989] 467478: не конвертируемо (convertible=False)
+[693/7989] F2287F: не конвертируемо (convertible=False)
+[694/7989] FB577F: не конвертируемо (convertible=False)
+[695/7989] F97870: не конвертируемо (convertible=False)
+[696/7989] F12B71: type=choice correct=[1] review=False conf=high
+[697/7989] FF5B71: type=digits correct=['3'] review=True conf=medium
+[698/7989] F9E671: type=word correct=['Кроме', 'Помимо', 'Кроме того', 'Помимо того'] review=True conf=medium
+[699/7989] F4C572: type=word correct=['иллюзионист'] review=False conf=high
+[700/7989] F3C072: type=word correct=['моя фамилия', 'яблочным повидлом', 'проворная мышь', 'столичное метро', 'дорогой тюль', 'застарелая мозоль'] review=False conf=high
+[701/7989] F2817D: type=word correct=['учиться — научиться', 'читать — прочитать', 'мыть — вымыть', 'натирать — натереть', 'помогать — помочь', 'таскать — потаскать'] review=True conf=medium
+[702/7989] FCBD75: не конвертируемо (convertible=False)
+[703/7989] FEB97C: не конвертируемо (convertible=False)
+[704/7989] FD967C: type=choice correct=[1] review=False conf=high
+[705/7989] FA347C: не конвертируемо (convertible=False)
+[706/7989] FC2179: type=choice correct=[0] review=True conf=medium
+[707/7989] F8BD7E: type=word correct=['ослепительные'] review=False conf=high
+[708/7989] FEC97E: type=digits correct=['1234'] review=True conf=low
+[709/7989] FA927E: type=word correct=['Утреннее солнце, ещё не вошедшее в силу, греет бережно и ласково.', 'Ещё не вошедшее в силу утреннее солнце греет бережно и ласково.'] review=True conf=medium
+[710/7989] F17B73: не конвертируемо (convertible=False)
+[711/7989] 0DA574: type=digits correct=['3142'] review=False conf=high
+[712/7989] 0F5F7F: type=word correct=['мне'] review=False conf=high
+[713/7989] 0E8E7F: type=word correct=['ракета', 'миномёт', 'зенит'] review=False conf=high
+[714/7989] 07E377: type=choice correct=[2] review=False conf=high
+[715/7989] 0B2372: type=choice correct=[3] review=False conf=high
+[716/7989] 0DAB7A: type=choice correct=[0] review=False conf=high
+[717/7989] 0C667A: не конвертируемо (convertible=False)
+[718/7989] 02E17C: не конвертируемо (convertible=False)
+[719/7989] 0E5D79: не конвертируемо (convertible=False)
+[720/7989] 033D79: type=choice correct=[0] review=False conf=high
+[721/7989] 0C4E7E: type=choice correct=[2] review=False conf=high
+[722/7989] 02FA7E: не конвертируемо (convertible=False)
+[723/7989] 01C17E: type=choice correct=[1] review=False conf=high
+[724/7989] 0D0576: не конвертируемо (convertible=False)
+[725/7989] 0C0476: не конвертируемо (convertible=False)
+[726/7989] 05D476: type=sentence-number correct=['2'] review=False conf=high
+[727/7989] 019973: не конвертируемо (convertible=False)
+[728/7989] 734774: type=word correct=['ВБГА'] review=False conf=high
+[729/7989] 786574: type=word correct=['в них', 'в них своё', 'в них свое'] review=True conf=medium
+[730/7989] 731670: не конвертируемо (convertible=False)
+[731/7989] 79D970: не конвертируемо (convertible=False)
+[732/7989] 79C972: не конвертируемо (convertible=False)
+[733/7989] 796B72: не конвертируемо (convertible=False)
+[734/7989] 77947D: type=word correct=['согласно'] review=False conf=high
+[735/7989] 71617D: не конвертируемо (convertible=False)
+[736/7989] 737575: type=word correct=['спустя'] review=False conf=high
+[737/7989] 712E7C: не конвертируемо (convertible=False)
+[738/7989] 740979: type=digits correct=['2143'] review=True conf=medium
+[739/7989] 75A27E: не конвертируемо (convertible=False)
+[740/7989] 7C4B76: не конвертируемо (convertible=False)
+[741/7989] BE7A74: не конвертируемо (convertible=False)
+[742/7989] B95C70: не конвертируемо (convertible=False)
+[743/7989] B52577: не конвертируемо (convertible=False)
+[744/7989] BB4471: type=choice correct=[4] review=False conf=high
+[745/7989] BF8172: не конвертируемо (convertible=False)
+[746/7989] BFDA7A: не конвертируемо (convertible=False)
+[747/7989] B1587A: не конвертируемо (convertible=False)
+[748/7989] B7A07A: type=word correct=['измерять', 'измеряет'] review=True conf=medium
+[749/7989] B6E37A: не конвертируемо (convertible=False)
+[750/7989] BA7A7C: type=word correct=['побуревшее'] review=False conf=high
+[751/7989] BABD7C: type=word correct=['-ов-', '-ян-', '-ан-', '-н-'] review=True conf=medium
+[752/7989] B5D97C: не конвертируемо (convertible=False)
+[753/7989] BB6779: не конвертируемо (convertible=False)
+[754/7989] B8397E: type=choice correct=[2] review=False conf=high
+[755/7989] BF8376: не конвертируемо (convertible=False)
+[756/7989] B1FA73: type=sentence-number correct=['1'] review=False conf=high
+[757/7989] 12747D: type=sentence-number correct=['2'] review=False conf=high
+[758/7989] 1D7C7D: не конвертируемо (convertible=False)
+[759/7989] 17CD7D: type=word correct=['заря'] review=False conf=high
+[760/7989] 1E677D: не конвертируемо (convertible=False)
+[761/7989] 15167C: type=choice correct=[0] review=False conf=high

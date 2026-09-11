@@ -632,6 +632,14 @@ body {
   font-size: 14px;
 }
 
+.footer__link {
+  color: var(--ink-soft);
+}
+
+.footer__link:hover {
+  color: var(--accent);
+}
+
 @media (max-width: 640px) {
   .header { margin-bottom: 26px; }
   .logo__subtitle { display: none; }
