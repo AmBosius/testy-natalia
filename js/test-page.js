@@ -204,6 +204,7 @@ async function onCheck() {
     const result = await checkAnswers(testId, collectAnswers());
     showResult(result);
   } catch (error) {
+    console.error('Ошибка проверки ответов:', error);
     checked = false;
     button.disabled = false;
     button.textContent = 'Проверить';
