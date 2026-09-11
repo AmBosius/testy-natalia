@@ -92,6 +92,7 @@ needs_review = true, если задание пограничное, неодн�
 класс: {grade}
 раздел: {section}
 подсказка с сайта: {hint}
+прикреплённый текст-отрывок (если есть — задание может на него ссылаться): {passage}
 текст задания: {text}"""
 
 TOOL_NAME = "convert_fipi_grades_question"
@@ -123,6 +124,15 @@ class LLMFatalError(LLMError):
     pass
 
 
+class RateLimitError(LLMError):
+    """429 — сервер сам говорит, сколько реально ждать (retry_after_seconds),
+    это обычно намного больше нашего дефолтного экспоненциального бэкоффа."""
+
+    def __init__(self, message: str, retry_after: float):
+        super().__init__(message)
+        self.retry_after = retry_after
+
+
 def load_lead_pipeline_env() -> dict:
     if not LEAD_PIPELINE_ENV.exists():
         raise SystemExit(f"Не найден {LEAD_PIPELINE_ENV} — там ключи Токенатора")
@@ -151,6 +161,7 @@ def render_user_prompt(rec: dict) -> str:
         grade=rec.get("grade_label") or "?",
         section=rec.get("section_label") or "?",
         hint=rec.get("hint") or "нет",
+        passage=rec.get("passage_text") or "нет",
         text=text or "(пусто)",
     )
 
@@ -165,7 +176,10 @@ def _extract_json(content: str):
         pass
     start, end = content.find("{"), content.rfind("}")
     if start != -1 and end > start:
-        return json.loads(content[start:end + 1])
+        try:
+            return json.loads(content[start:end + 1])
+        except json.JSONDecodeError as e:
+            raise LLMError(f"невалидный JSON в ответе: {e}: {content[:300]!r}") from e
     raise LLMError(f"в ответе нет JSON: {content[:200]!r}")
 
 
@@ -198,6 +212,13 @@ def call_llm(client: httpx.Client, base_url: str, api_key: str, model: str,
 
     if r.status_code in (401, 403, 404):
         raise LLMFatalError(f"HTTP {r.status_code}: {r.text[:300]}")
+    if r.status_code == 429:
+        retry_after = 5.0
+        try:
+            retry_after = float(r.json()["error"]["retry_after_seconds"])
+        except (json.JSONDecodeError, KeyError, TypeError, ValueError):
+            pass
+        raise RateLimitError(f"HTTP 429: {r.text[:200]}", retry_after)
     if r.status_code != 200:
         raise LLMError(f"HTTP {r.status_code}: {r.text[:300]}")
 
@@ -278,9 +299,23 @@ def process_one(rec: dict, base_url: str, api_key: str, model: str, max_tokens: 
             return ("ok", rec, item, None)
         except LLMFatalError as e:
             return ("fatal", rec, None, str(e))
+        except RateLimitError as e:
+            # Общий лимит 120рпм на несколько параллельных воркеров/скриптов —
+            # сервер сам говорит, сколько ждать (обычно секунды-десятки
+            # секунд), это надёжнее собственного бэкоффа с задержкой ~1с.
+            if attempt >= max_attempts:
+                return ("error", rec, None, str(e))
+            time.sleep(min(e.retry_after + 1, 60))
         except LLMError as e:
             if attempt >= max_attempts:
                 return ("error", rec, None, str(e))
+            time.sleep(delay_sec * (2 ** (attempt - 1)))
+        except Exception as e:
+            # Подстраховка: что угодно неожиданное (сеть, парсинг, что не
+            # завели явно как LLMError) НЕ должно ронять весь пул потоков —
+            # один плохой ответ модели не должен стоить всего прогресса.
+            if attempt >= max_attempts:
+                return ("error", rec, None, f"{type(e).__name__}: {e}")
             time.sleep(delay_sec * (2 ** (attempt - 1)))
 
 

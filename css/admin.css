@@ -20,6 +20,22 @@
   margin: 0;
 }
 
+.admin-head__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.drafts-note {
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.badge--review {
+  background: #fdf3e4;
+  color: #a4701c;
+}
+
 /* Форма входа */
 
 .login-view {

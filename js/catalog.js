@@ -36,7 +36,24 @@ function renderTestCard(test) {
   return card;
 }
 
-// Блок одного раздела со списком тестов.
+// Группирует тесты по теме, сохраняя порядок первого появления темы.
+function groupByTopic(tests) {
+  const order = [];
+  const groups = {};
+
+  tests.forEach(function (test) {
+    if (!groups[test.topic]) {
+      groups[test.topic] = [];
+      order.push(test.topic);
+    }
+    groups[test.topic].push(test);
+  });
+
+  return order.map(function (topic) { return { topic: topic, tests: groups[topic] }; });
+}
+
+// Блок одного раздела со списком тестов, подгруппированных по темам —
+// при сотнях тестов в разделе плоский список стал бы нечитаемым.
 function renderSection(section, tests) {
   const block = document.createElement('section');
   block.className = 'section';
@@ -51,12 +68,20 @@ function renderSection(section, tests) {
     empty.className = 'section__empty';
     empty.textContent = 'В этом разделе тестов пока нет';
     block.append(empty);
-  } else {
+    return block;
+  }
+
+  groupByTopic(tests).forEach(function (group) {
+    const topicTitle = document.createElement('h3');
+    topicTitle.className = 'topic-title';
+    topicTitle.textContent = group.topic;
+    block.append(topicTitle);
+
     const grid = document.createElement('div');
     grid.className = 'test-grid';
-    tests.forEach(function (test) { grid.append(renderTestCard(test)); });
+    group.tests.forEach(function (test) { grid.append(renderTestCard(test)); });
     block.append(grid);
-  }
+  });
 
   return block;
 }

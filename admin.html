@@ -45,9 +45,22 @@
     <section class="tests-view" hidden>
       <div class="admin-head">
         <h1 class="admin-title">Тесты</h1>
-        <button class="button add-test-button" type="button">+ Новый тест</button>
+        <div class="admin-head__actions">
+          <button class="button button--ghost show-drafts-button" type="button">Черновики на проверке</button>
+          <button class="button add-test-button" type="button">+ Новый тест</button>
+        </div>
       </div>
       <div class="admin-list tests-list"></div>
+    </section>
+
+    <section class="drafts-view" hidden>
+      <button class="back-link back-to-tests" type="button">Все тесты</button>
+      <h1 class="admin-title">Черновики на проверке</h1>
+      <p class="drafts-note">
+        Эти задания загружены автоматически и требуют проверки перед показом ученикам.
+        Ученики их не видят, пока вы не нажмёте «Опубликовать».
+      </p>
+      <div class="admin-list drafts-list"></div>
     </section>
 
     <section class="test-form-view" hidden>
@@ -104,6 +117,7 @@
           <span class="field__label">Тип задания</span>
           <select class="field__input" name="type" required>
             <option value="choice">Выбор варианта</option>
+            <option value="multi-choice">Выбор нескольких вариантов</option>
             <option value="sentence-number">Номер предложения</option>
             <option value="word">Слово / словосочетание</option>
             <option value="digits">Цифры (набор, без порядка)</option>

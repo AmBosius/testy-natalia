@@ -82,6 +82,12 @@ class LLMFatalError(LLMError):
     """Неверный ключ/модель/права — повтор не поможет, нужно чинить конфиг."""
 
 
+class RateLimitError(LLMError):
+    def __init__(self, message: str, retry_after: float):
+        super().__init__(message)
+        self.retry_after = retry_after
+
+
 def load_lead_pipeline_env() -> dict:
     if not LEAD_PIPELINE_ENV.exists():
         raise SystemExit(f"Не найден {LEAD_PIPELINE_ENV} — там ключи Токенатора")
@@ -114,7 +120,10 @@ def _extract_json(content: str):
         pass
     start, end = content.find("{"), content.rfind("}")
     if start != -1 and end > start:
-        return json.loads(content[start:end + 1])
+        try:
+            return json.loads(content[start:end + 1])
+        except json.JSONDecodeError as e:
+            raise LLMError(f"невалидный JSON в ответе: {e}: {content[:300]!r}") from e
     raise LLMError(f"в ответе нет JSON: {content[:200]!r}")
 
 
@@ -153,6 +162,13 @@ def call_llm(client: httpx.Client, base_url: str, api_key: str,
 
     if r.status_code in (401, 403, 404):
         raise LLMFatalError(f"HTTP {r.status_code}: {r.text[:300]}")
+    if r.status_code == 429:
+        retry_after = 5.0
+        try:
+            retry_after = float(r.json()["error"]["retry_after_seconds"])
+        except (json.JSONDecodeError, KeyError, TypeError, ValueError):
+            pass
+        raise RateLimitError(f"HTTP 429: {r.text[:200]}", retry_after)
     if r.status_code != 200:
         raise LLMError(f"HTTP {r.status_code}: {r.text[:300]}")
 
@@ -222,6 +238,13 @@ def process(items: list[dict], limit: int, base_url: str, api_key: str,
                     print(f"ФАТАЛЬНАЯ ОШИБКА (проверь --model/ключ в .env): {e}", file=sys.stderr)
                     stats["errors"] += 1
                     return stats
+                except RateLimitError as e:
+                    if attempt >= max_attempts:
+                        print(f"[{i}/{len(to_process)}] {item['_source_short_id']}: "
+                              f"сдаюсь после {attempt} попыток: {e}", file=sys.stderr)
+                        stats["errors"] += 1
+                        break
+                    time.sleep(min(e.retry_after + 1, 60))
                 except LLMError as e:
                     if attempt >= max_attempts:
                         print(f"[{i}/{len(to_process)}] {item['_source_short_id']}: "
@@ -232,6 +255,13 @@ def process(items: list[dict], limit: int, base_url: str, api_key: str,
                     print(f"[{i}/{len(to_process)}] попытка {attempt} не удалась ({e}), "
                           f"жду {backoff:.1f}с", file=sys.stderr)
                     time.sleep(backoff)
+                except Exception as e:
+                    if attempt >= max_attempts:
+                        print(f"[{i}/{len(to_process)}] {item['_source_short_id']}: "
+                              f"сдаюсь после {attempt} попыток: {type(e).__name__}: {e}", file=sys.stderr)
+                        stats["errors"] += 1
+                        break
+                    time.sleep(delay_sec * (2 ** (attempt - 1)))
             time.sleep(delay_sec)
 
     return stats

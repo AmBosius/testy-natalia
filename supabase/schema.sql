@@ -24,11 +24,12 @@ create table if not exists questions (
   id bigint generated always as identity primary key,
   test_id text not null references tests(id) on delete cascade,
   position int not null,
-  type text not null check (type in ('choice', 'sentence-number', 'word', 'digits')),
+  type text not null check (type in ('choice', 'multi-choice', 'sentence-number', 'word', 'digits')),
   text text not null,
   passage text,
   options jsonb,
-  hint text
+  hint text,
+  published boolean not null default true
 );
 
 -- Правильные ответы лежат отдельно от questions и никогда не отдаются
@@ -49,7 +50,7 @@ alter table answers enable row level security;
 -- Публичное чтение: разделы, тесты, вопросы — видно всем (в т.ч. анонимам).
 create policy "public read sections" on sections for select using (true);
 create policy "public read tests" on tests for select using (true);
-create policy "public read questions" on questions for select using (true);
+create policy "public read questions" on questions for select using (published = true);
 -- На answers публичной select-политики намеренно нет — анонимный
 -- пользователь не может прочитать эту таблицу вообще никак.
 
@@ -95,12 +96,14 @@ declare
   given jsonb;
   given_text text;
   is_ok boolean;
+  given_set int[];
+  correct_set int[];
 begin
   for q in
     select qs.id, qs.type, a.correct, a.digit_set
     from questions qs
     join answers a on a.question_id = qs.id
-    where qs.test_id = p_test_id
+    where qs.test_id = p_test_id and qs.published = true
     order by qs.position
   loop
     total := total + 1;
@@ -108,7 +111,17 @@ begin
     is_ok := false;
 
     if given is not null and given <> 'null'::jsonb then
-      if jsonb_typeof(given) = 'number' then
+      if jsonb_typeof(given) = 'array' then
+        -- multi-choice: сравниваем как множества индексов
+        select array_agg((elem)::text::int order by (elem)::text::int)
+          into given_set
+          from jsonb_array_elements(given) elem;
+        select array_agg((elem)::text::int order by (elem)::text::int)
+          into correct_set
+          from jsonb_array_elements(q.correct) elem
+          where jsonb_typeof(elem) = 'number';
+        is_ok := coalesce(given_set = correct_set, false);
+      elsif jsonb_typeof(given) = 'number' then
         select coalesce(bool_or((elem)::text::int = (given)::text::int), false) into is_ok
         from jsonb_array_elements(q.correct) elem
         where jsonb_typeof(elem) = 'number';

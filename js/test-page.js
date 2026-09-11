@@ -38,7 +38,16 @@ function renderQuestion(question, index) {
     body.append(passage);
   }
 
-  if (question.type === 'choice') {
+  if (question.type === 'choice' || question.type === 'multi-choice') {
+    const isMulti = question.type === 'multi-choice';
+
+    if (isMulti) {
+      const note = document.createElement('p');
+      note.className = 'question__hint';
+      note.textContent = 'Отметьте все подходящие варианты';
+      body.append(note);
+    }
+
     const list = document.createElement('div');
     list.className = 'options';
 
@@ -47,7 +56,7 @@ function renderQuestion(question, index) {
       label.className = 'option';
 
       const input = document.createElement('input');
-      input.type = 'radio';
+      input.type = isMulti ? 'checkbox' : 'radio';
       input.name = 'q' + question.id;
       input.value = optionIndex;
 
@@ -100,6 +109,13 @@ function collectAnswers() {
         '[name="q' + question.id + '"]:checked'
       );
       answers[question.id] = checkedOption ? Number(checkedOption.value) : null;
+    } else if (question.type === 'multi-choice') {
+      const checkedOptions = document.querySelectorAll(
+        '[name="q' + question.id + '"]:checked'
+      );
+      answers[question.id] = Array.from(checkedOptions)
+        .map(function (input) { return Number(input.value); })
+        .sort(function (a, b) { return a - b; });
     } else {
       const input = document.querySelector(
         'input[name="q' + question.id + '"]'
@@ -116,7 +132,9 @@ function updateProgress() {
   const answers = collectAnswers();
   const total = currentTest.questions.length;
   const answered = Object.keys(answers).filter(function (id) {
-    return answers[id] !== null && answers[id] !== '';
+    const value = answers[id];
+    if (Array.isArray(value)) return value.length > 0;
+    return value !== null && value !== '';
   }).length;
 
   document.querySelector('.progress__value').textContent =
@@ -150,7 +168,7 @@ function showResult(result) {
         .map(function (variant) {
           return typeof variant === 'number' ? question.options[variant] : variant;
         })
-        .join(' / ');
+        .join(question.type === 'multi-choice' ? ' и ' : ' / ');
       verdict.textContent = 'Неверно. Правильный ответ: ' + readable;
     }
   });

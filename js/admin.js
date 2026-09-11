@@ -5,6 +5,7 @@
 
 const TYPE_LABELS = {
   choice: 'Выбор варианта',
+  'multi-choice': 'Выбор нескольких вариантов',
   'sentence-number': 'Номер предложения',
   word: 'Слово / словосочетание',
   digits: 'Цифры'
@@ -18,7 +19,8 @@ const views = {
   tests: document.querySelector('.tests-view'),
   testForm: document.querySelector('.test-form-view'),
   questions: document.querySelector('.questions-view'),
-  questionForm: document.querySelector('.question-form-view')
+  questionForm: document.querySelector('.question-form-view'),
+  drafts: document.querySelector('.drafts-view')
 };
 
 function showView(name) {
@@ -244,8 +246,27 @@ async function showQuestionsView(test) {
 
     info.append(title, meta);
 
+    if (!question.published) {
+      const badge = document.createElement('span');
+      badge.className = 'badge badge--review';
+      badge.textContent = 'на проверке';
+      info.append(badge);
+    }
+
     const actions = document.createElement('div');
     actions.className = 'admin-row__actions';
+
+    if (!question.published) {
+      const publishButton = document.createElement('button');
+      publishButton.className = 'button button--ghost';
+      publishButton.type = 'button';
+      publishButton.textContent = 'Опубликовать';
+      publishButton.addEventListener('click', async function () {
+        await supabaseClient.from('questions').update({ published: true }).eq('id', question.id);
+        showQuestionsView(test);
+      });
+      actions.append(publishButton);
+    }
 
     const editButton = document.createElement('button');
     editButton.className = 'button button--ghost';
@@ -257,6 +278,92 @@ async function showQuestionsView(test) {
     row.append(info, actions);
     list.append(row);
   });
+}
+
+// ---------- Черновики (needs_review со всех тестов) ----------
+
+const DRAFTS_PAGE_SIZE = 50;
+let draftsOffset = 0;
+
+document.querySelector('.show-drafts-button').addEventListener('click', function () {
+  draftsOffset = 0;
+  showDraftsView(false);
+});
+
+async function showDraftsView(append) {
+  showView('drafts');
+  const list = document.querySelector('.drafts-list');
+  if (!append) list.textContent = 'Загрузка…';
+
+  const { data: questions, count } = await supabaseClient
+    .from('questions')
+    .select('*, tests(id, title)', { count: 'exact' })
+    .eq('published', false)
+    .order('id')
+    .range(draftsOffset, draftsOffset + DRAFTS_PAGE_SIZE - 1);
+
+  if (!append) list.textContent = '';
+  const existingMore = document.querySelector('.drafts-load-more');
+  if (existingMore) existingMore.remove();
+
+  if (!questions || questions.length === 0) {
+    if (!append) list.textContent = 'Черновиков нет — всё опубликовано.';
+    return;
+  }
+
+  questions.forEach(function (question) {
+    const row = document.createElement('div');
+    row.className = 'admin-row';
+
+    const info = document.createElement('div');
+    info.className = 'admin-row__info';
+
+    const title = document.createElement('span');
+    title.className = 'admin-row__title';
+    title.textContent = question.text;
+
+    const meta = document.createElement('span');
+    meta.className = 'admin-row__meta';
+    meta.textContent = (question.tests ? question.tests.title : question.test_id) +
+      ' · ' + (TYPE_LABELS[question.type] || question.type);
+
+    info.append(title, meta);
+
+    const actions = document.createElement('div');
+    actions.className = 'admin-row__actions';
+
+    const publishButton = document.createElement('button');
+    publishButton.className = 'button button--ghost';
+    publishButton.type = 'button';
+    publishButton.textContent = 'Опубликовать';
+    publishButton.addEventListener('click', async function () {
+      await supabaseClient.from('questions').update({ published: true }).eq('id', question.id);
+      row.remove();
+    });
+
+    const editButton = document.createElement('button');
+    editButton.className = 'button button--ghost';
+    editButton.type = 'button';
+    editButton.textContent = 'Изменить';
+    editButton.addEventListener('click', function () {
+      showQuestionForm(question.tests || { id: question.test_id }, question);
+    });
+
+    actions.append(publishButton, editButton);
+    row.append(info, actions);
+    list.append(row);
+  });
+
+  draftsOffset += questions.length;
+
+  if (count !== null && draftsOffset < count) {
+    const moreButton = document.createElement('button');
+    moreButton.type = 'button';
+    moreButton.className = 'add-option-button drafts-load-more';
+    moreButton.textContent = 'Показать ещё (осталось ' + (count - draftsOffset) + ')';
+    moreButton.addEventListener('click', function () { showDraftsView(true); });
+    list.append(moreButton);
+  }
 }
 
 document.querySelector('.add-question-button').addEventListener('click', function () {
@@ -271,21 +378,28 @@ document.querySelectorAll('.back-to-questions').forEach(function (button) {
 
 // ---------- Форма задания ----------
 
-function renderOptionRows(options, correctIndex) {
+// choice -> один правильный вариант (radio), multi-choice -> несколько (checkbox).
+function currentOptionInputType() {
+  const type = document.querySelector('select[name="type"]').value;
+  return type === 'multi-choice' ? 'checkbox' : 'radio';
+}
+
+function renderOptionRows(options, correctIndices) {
   const list = document.querySelector('.options-list');
   list.textContent = '';
 
   const values = options && options.length ? options : ['', '', '', '', ''];
+  const correctSet = correctIndices || [];
 
   values.forEach(function (value, index) {
     const row = document.createElement('div');
     row.className = 'option-row';
 
-    const radio = document.createElement('input');
-    radio.type = 'radio';
-    radio.name = 'correctOption';
-    radio.value = String(index);
-    radio.checked = index === correctIndex;
+    const marker = document.createElement('input');
+    marker.type = currentOptionInputType();
+    marker.name = 'correctOption';
+    marker.value = String(index);
+    marker.checked = correctSet.indexOf(index) !== -1;
 
     const input = document.createElement('input');
     input.type = 'text';
@@ -300,8 +414,23 @@ function renderOptionRows(options, correctIndex) {
     removeButton.title = 'Удалить вариант';
     removeButton.addEventListener('click', function () { row.remove(); });
 
-    row.append(radio, input, removeButton);
+    row.append(marker, input, removeButton);
     list.append(row);
+  });
+}
+
+// При переключении choice <-> multi-choice меняет radio/checkbox у уже
+// введённых вариантов, не теряя текст и отметки.
+function applyOptionInputType() {
+  const inputType = currentOptionInputType();
+  document.querySelectorAll('.option-row input[name="correctOption"]').forEach(function (marker) {
+    if (marker.type === inputType) return;
+    const replacement = document.createElement('input');
+    replacement.type = inputType;
+    replacement.name = 'correctOption';
+    replacement.value = marker.value;
+    replacement.checked = marker.checked;
+    marker.replaceWith(replacement);
   });
 }
 
@@ -315,7 +444,7 @@ document.querySelector('.add-option-button').addEventListener('click', function 
   const row = document.createElement('div');
   row.className = 'option-row';
   row.innerHTML =
-    '<input type="radio" name="correctOption" value="' + index + '">' +
+    '<input type="' + currentOptionInputType() + '" name="correctOption" value="' + index + '">' +
     '<input type="text" class="field__input" placeholder="Вариант ' + String.fromCharCode(1040 + index) + '">' +
     '<button type="button" class="option-row__remove" title="Удалить вариант">✕</button>';
   row.querySelector('.option-row__remove').addEventListener('click', function () { row.remove(); });
@@ -330,12 +459,14 @@ const ANSWER_HINTS = {
 
 function updateQuestionFormFields() {
   const type = document.querySelector('select[name="type"]').value;
-  const isChoice = type === 'choice';
+  const isOptionsType = type === 'choice' || type === 'multi-choice';
 
-  document.querySelector('.options-field').hidden = !isChoice;
-  document.querySelector('.answer-field').hidden = isChoice;
-  document.querySelector('.hint-field').hidden = isChoice;
+  document.querySelector('.options-field').hidden = !isOptionsType;
+  document.querySelector('.answer-field').hidden = isOptionsType;
+  document.querySelector('.hint-field').hidden = isOptionsType;
   document.querySelector('.answer-field__hint').textContent = ANSWER_HINTS[type] || '';
+
+  if (isOptionsType) applyOptionInputType();
 }
 
 document.querySelector('select[name="type"]').addEventListener('change', updateQuestionFormFields);
@@ -357,16 +488,16 @@ async function showQuestionForm(test, question) {
     form.passage.value = question.passage || '';
     form.hint.value = question.hint || '';
 
-    if (question.type === 'choice') {
+    if (question.type === 'choice' || question.type === 'multi-choice') {
       const { data: answer } = await supabaseClient
         .from('answers').select('*').eq('question_id', question.id).maybeSingle();
-      const correctIndex = answer && typeof answer.correct[0] === 'number' ? answer.correct[0] : -1;
-      renderOptionRows(question.options, correctIndex);
+      const correctIndices = answer ? answer.correct.filter(function (v) { return typeof v === 'number'; }) : [];
+      renderOptionRows(question.options, correctIndices);
     } else {
       const { data: answer } = await supabaseClient
         .from('answers').select('*').eq('question_id', question.id).maybeSingle();
       form.answer.value = answer ? answer.correct.join(', ') : '';
-      renderOptionRows(null, -1);
+      renderOptionRows(null, []);
     }
   } else {
     form.type.value = 'choice';
@@ -387,17 +518,17 @@ document.querySelector('.question-form').addEventListener('submit', async functi
   let correct;
   let digitSet = false;
 
-  if (type === 'choice') {
+  if (type === 'choice' || type === 'multi-choice') {
     const rows = Array.from(document.querySelectorAll('.option-row'));
     options = rows.map(function (row) { return row.querySelector('input[type="text"]').value.trim(); })
       .filter(function (value) { return value !== ''; });
 
-    const checkedRadio = document.querySelector('input[name="correctOption"]:checked');
-    if (!checkedRadio) {
-      alert('Отметьте, какой вариант правильный.');
+    const checkedMarkers = document.querySelectorAll('input[name="correctOption"]:checked');
+    if (checkedMarkers.length === 0) {
+      alert('Отметьте, какой вариант(-ы) правильный.');
       return;
     }
-    correct = [Number(checkedRadio.value)];
+    correct = Array.from(checkedMarkers).map(function (input) { return Number(input.value); });
   } else {
     correct = form.answer.value.split(',').map(function (v) { return v.trim(); }).filter(Boolean);
     if (correct.length === 0) {
@@ -407,13 +538,14 @@ document.querySelector('.question-form').addEventListener('submit', async functi
     digitSet = type === 'digits';
   }
 
+  const isOptionsType = type === 'choice' || type === 'multi-choice';
   const questionPayload = {
     test_id: testId,
     type: type,
     text: form.text.value.trim(),
     passage: form.passage.value.trim() || null,
     options: options,
-    hint: type === 'choice' ? null : (form.hint.value.trim() || null)
+    hint: isOptionsType ? null : (form.hint.value.trim() || null)
   };
 
   let questionId = existingId ? Number(existingId) : null;

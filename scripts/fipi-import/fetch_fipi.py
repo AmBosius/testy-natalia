@@ -106,19 +106,29 @@ def parse_qblock(qblock) -> dict:
     guid = guid_input.get("value") if guid_input else None
 
     # Тело вопроса: первая жёлтая ячейка таблицы задания (bgcolor #FAFBCA / class cell_0).
+    # У блоков-отрывков без guid (общий текст для группы вопросов, см.
+    # parse_questions_page) НЕТ этой таблицы вообще — текст лежит прямо в
+    # <p> внутри qblock. Без этого фолбэка их текст молча терялся (question_text
+    # уходил как None), и passage у прикреплённых вопросов оставался пустым.
     body_cell = qblock.select_one("td.cell_0")
-    question_html = str(body_cell) if body_cell else None
-    question_text = body_cell.get_text(" ", strip=True) if body_cell else None
+    if body_cell:
+        question_html = str(body_cell)
+        question_text = body_cell.get_text(" ", strip=True)
+        paragraph_source = body_cell
+    else:
+        question_html = str(qblock)
+        top_level_p = qblock.find_all("p", recursive=False)
+        question_text = " ".join(p.get_text(" ", strip=True) for p in top_level_p) or None
+        paragraph_source = qblock
 
     # Топ-уровневые <p> внутри тела — часто это [инструкция, размеченное
     # предложение/текст]. map_schema.py использует это, чтобы аккуратно
     # развести text/passage вместо одной слипшейся строки.
     paragraphs = []
-    if body_cell:
-        for p in body_cell.find_all("p", recursive=False):
-            t = p.get_text(" ", strip=True)
-            if t:
-                paragraphs.append(t)
+    for p in paragraph_source.find_all("p", recursive=False):
+        t = p.get_text(" ", strip=True)
+        if t:
+            paragraphs.append(t)
         if not paragraphs:
             # Иногда абзацы лежат не прямо в td, а во вложенной таблице/div —
             # просто нечего делить, остаётся один общий блок.
