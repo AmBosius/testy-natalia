@@ -113,8 +113,24 @@ function renderFilters() {
 }
 
 async function initCatalog() {
-  const response = await fetch('data/tests.json');
-  catalogData = await response.json();
+  const [{ data: sections }, { data: tests }] = await Promise.all([
+    supabaseClient.from('sections').select('*').order('sort_order'),
+    supabaseClient.from('tests').select('*, questions(count)').order('title')
+  ]);
+
+  catalogData = {
+    sections: sections,
+    tests: tests.map(function (test) {
+      return {
+        id: test.id,
+        title: test.title,
+        section: test.section,
+        topic: test.topic,
+        level: test.level,
+        count: test.questions[0] ? test.questions[0].count : 0
+      };
+    })
+  };
 
   renderFilters();
   renderCatalog();

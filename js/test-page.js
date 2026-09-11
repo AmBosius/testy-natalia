@@ -194,8 +194,18 @@ async function onCheck() {
 }
 
 async function init() {
-  const response = await fetch('data/' + testId + '.json');
-  currentTest = await response.json();
+  const [{ data: test }, { data: questions }] = await Promise.all([
+    supabaseClient.from('tests').select('*, sections(title)').eq('id', testId).single(),
+    supabaseClient.from('questions').select('*').eq('test_id', testId).order('position')
+  ]);
+
+  currentTest = {
+    id: test.id,
+    title: test.title,
+    section: test.sections.title,
+    topic: test.topic,
+    questions: questions
+  };
 
   document.title = currentTest.title;
   document.querySelector('.test-title').textContent = currentTest.title;
