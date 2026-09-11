@@ -377,6 +377,35 @@ body {
   font-size: 14px;
 }
 
+.correspondence {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  margin-top: 12px;
+  padding: 14px 16px;
+  background: #fafaf7;
+  border-left: 2px solid var(--line);
+  border-radius: 0 8px 8px 0;
+}
+
+.correspondence__col {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.correspondence__row {
+  margin: 0;
+  color: #333c4a;
+  line-height: 1.45;
+}
+
+@media (max-width: 640px) {
+  .correspondence {
+    grid-template-columns: 1fr;
+  }
+}
+
 .options {
   display: grid;
   gap: 8px;

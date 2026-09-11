@@ -7,6 +7,72 @@ const testId = params.get('id');
 let currentTest = null;
 let checked = false;
 
+// Разбирает задания вида «Установите соответствие... А) ... Б) ... 1) ... 2) ...»
+// на вступление, два списка (буквы / цифры) и хвостовую инструкцию, чтобы
+// показать их таблицей, а не одним сплошным абзацем.
+function parseCorrespondence(text) {
+  const letterStart = text.search(/[А-Е]\)/);
+  if (letterStart === -1) return null;
+
+  const intro = text.slice(0, letterStart).trim();
+  const rest = text.slice(letterStart);
+
+  const numberStart = rest.search(/\d+\)/);
+  if (numberStart === -1) return null;
+
+  const lettersBlock = rest.slice(0, numberStart);
+  const afterLetters = rest.slice(numberStart);
+
+  const trailingMatch = afterLetters.match(/(Запишите[\s\S]*)$/);
+  const trailing = trailingMatch ? trailingMatch[1].trim() : '';
+  const numbersBlock = trailingMatch ? afterLetters.slice(0, trailingMatch.index) : afterLetters;
+
+  function splitItems(block, markerRegex) {
+    const items = [];
+    const matches = Array.from(block.matchAll(markerRegex));
+    for (let i = 0; i < matches.length; i++) {
+      const start = matches[i].index + matches[i][0].length;
+      const end = i + 1 < matches.length ? matches[i + 1].index : block.length;
+      const value = block.slice(start, end).replace(/\s+/g, ' ').trim();
+      if (value) items.push({ key: matches[i][1], value: value });
+    }
+    return items;
+  }
+
+  const letters = splitItems(lettersBlock, /([А-Е])\)/g);
+  const numbers = splitItems(numbersBlock, /(\d+)\)/g);
+
+  if (letters.length < 2 || numbers.length < 2) return null;
+  return { intro: intro, letters: letters, numbers: numbers, trailing: trailing };
+}
+
+function renderCorrespondenceTable(parsed) {
+  const wrap = document.createElement('div');
+  wrap.className = 'correspondence';
+
+  function buildColumn(items) {
+    const col = document.createElement('div');
+    col.className = 'correspondence__col';
+    items.forEach(function (item) {
+      const row = document.createElement('p');
+      row.className = 'correspondence__row';
+
+      const key = document.createElement('b');
+      key.textContent = item.key + ')';
+
+      row.append(key, ' ' + item.value);
+      col.append(row);
+    });
+    return col;
+  }
+
+  const col1 = buildColumn(parsed.letters);
+  const col2 = buildColumn(parsed.numbers);
+
+  wrap.append(col1, col2);
+  return wrap;
+}
+
 // Рисует одно задание в зависимости от его типа.
 function renderQuestion(question, index) {
   const item = document.createElement('article');
@@ -20,9 +86,11 @@ function renderQuestion(question, index) {
   number.className = 'question__number';
   number.textContent = index + 1;
 
+  const correspondence = parseCorrespondence(question.text);
+
   const text = document.createElement('p');
   text.className = 'question__text';
-  text.textContent = question.text;
+  text.textContent = correspondence ? correspondence.intro : question.text;
 
   head.append(number, text);
   item.append(head);
@@ -36,6 +104,16 @@ function renderQuestion(question, index) {
     passage.className = 'question__passage';
     passage.textContent = question.passage;
     body.append(passage);
+  }
+
+  if (correspondence) {
+    body.append(renderCorrespondenceTable(correspondence));
+    if (correspondence.trailing) {
+      const note = document.createElement('p');
+      note.className = 'question__hint';
+      note.textContent = correspondence.trailing;
+      body.append(note);
+    }
   }
 
   if (question.type === 'choice' || question.type === 'multi-choice') {
