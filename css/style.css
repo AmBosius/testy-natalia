@@ -368,6 +368,7 @@ body {
   border-left: 2px solid var(--line);
   border-radius: 0 8px 8px 0;
   color: #333c4a;
+  white-space: pre-line;
 }
 
 .question__hint {
