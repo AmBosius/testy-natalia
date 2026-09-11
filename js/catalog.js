@@ -3,7 +3,12 @@
 const LEVEL_NAMES = { 1: 'базовый', 2: 'средний', 3: 'сложный' };
 
 let catalogData = null;
+// Восстанавливаем выбранный фильтр после возврата кнопкой «назад» —
+// в некоторых браузерах (замечено в Яндекс.Браузере) переход назад
+// заново выполняет скрипт вместо восстановления состояния из bfcache,
+// и без этого фильтр сбрасывается на «Все разделы».
 let activeSection = 'all';
+try { activeSection = sessionStorage.getItem('activeSection') || 'all'; } catch (e) {}
 
 // Карточка одного теста.
 function renderTestCard(test) {
@@ -126,6 +131,7 @@ function renderFilters() {
 
     button.addEventListener('click', function () {
       activeSection = item.id;
+      try { sessionStorage.setItem('activeSection', activeSection); } catch (e) {}
       nav.querySelectorAll('.filter').forEach(function (other) {
         other.classList.remove('filter--active');
       });
