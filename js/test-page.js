@@ -157,6 +157,7 @@ function showResult(result) {
       '[data-question-id="' + question.id + '"]'
     );
     const info = result.byQuestion[question.id];
+    if (!info) return;
     const verdict = item.querySelector('.question__verdict');
 
     item.classList.add(info.correct ? 'question--correct' : 'question--wrong');
@@ -215,7 +216,7 @@ async function onCheck() {
 async function init() {
   const [{ data: test }, { data: questions }] = await Promise.all([
     supabaseClient.from('tests').select('*, sections(title)').eq('id', testId).single(),
-    supabaseClient.from('questions').select('*').eq('test_id', testId).order('position')
+    supabaseClient.from('questions').select('*').eq('test_id', testId).eq('published', true).order('position')
   ]);
 
   currentTest = {
