@@ -219,6 +219,10 @@ function updateProgress() {
     answered + ' из ' + total;
   document.querySelector('.progress__bar').style.width =
     (answered / total) * 100 + '%';
+
+  // Кнопку проверки не даём нажать, пока не отвечены все задания —
+  // иначе можно нажать «Проверить» вслепую и получить все ответы разом.
+  document.querySelector('.check-button').disabled = answered < total;
 }
 
 function resultMessage(percent) {
@@ -273,6 +277,14 @@ function showResult(result) {
 
 async function onCheck() {
   if (checked) return;
+
+  const answers = collectAnswers();
+  const answeredCount = Object.keys(answers).filter(function (id) {
+    const value = answers[id];
+    return Array.isArray(value) ? value.length > 0 : value !== null && value !== '';
+  }).length;
+  if (answeredCount < currentTest.questions.length) return;
+
   checked = true;
 
   const button = document.querySelector('.check-button');
