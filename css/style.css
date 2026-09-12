@@ -159,7 +159,8 @@ body {
   color: var(--accent);
 }
 
-.filter--active {
+.filter--active,
+.filter--active:hover {
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
