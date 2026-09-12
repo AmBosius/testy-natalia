@@ -137,6 +137,32 @@ textarea.field__input {
   background: var(--wrong-bg);
 }
 
+/* Фильтры списка тестов */
+
+.tests-filters {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.tests-filters .field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.tests-filters .field--narrow {
+  flex: 0 0 auto;
+  max-width: 240px;
+  min-width: 180px;
+}
+
+.tests-count {
+  margin: 0 0 14px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
 /* Списки тестов/заданий */
 
 .admin-list {

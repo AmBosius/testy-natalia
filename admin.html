@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=5">
-  <link rel="stylesheet" href="css/admin.css?v=2">
+  <link rel="stylesheet" href="css/admin.css?v=3">
 </head>
 <body>
   <header class="header">
@@ -50,6 +50,25 @@
           <button class="button add-test-button" type="button">+ Новый тест</button>
         </div>
       </div>
+      <div class="tests-filters">
+        <label class="field">
+          <span class="field__label">Поиск по названию</span>
+          <input class="field__input" type="search" name="search" placeholder="Например: вариант 1">
+        </label>
+        <label class="field field--narrow">
+          <span class="field__label">Класс</span>
+          <select class="field__input" name="filterSection">
+            <option value="">Все классы</option>
+          </select>
+        </label>
+        <label class="field field--narrow">
+          <span class="field__label">Тема</span>
+          <select class="field__input" name="filterTopic">
+            <option value="">Все темы</option>
+          </select>
+        </label>
+      </div>
+      <p class="tests-count"></p>
       <div class="admin-list tests-list"></div>
     </section>
 
@@ -161,6 +180,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <script src="js/supabase-client.js?v=3"></script>
-  <script src="js/admin.js?v=2"></script>
+  <script src="js/admin.js?v=3"></script>
 </body>
 </html>

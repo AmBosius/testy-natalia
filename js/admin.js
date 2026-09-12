@@ -12,6 +12,7 @@ const TYPE_LABELS = {
 };
 
 let sectionsCache = [];
+let testsCache = [];
 let currentTestId = null;
 
 const views = {
@@ -104,10 +105,79 @@ async function showTestsView() {
     .select('*, questions(count)')
     .order('title');
 
+  testsCache = tests || [];
+  populateSectionFilter();
+  populateTopicFilter();
+  applyTestsFilters();
+}
+
+function populateSectionFilter() {
+  const select = document.querySelector('select[name="filterSection"]');
+  const previous = select.value;
+  select.innerHTML = '<option value="">Все классы</option>';
+  sectionsCache.forEach(function (section) {
+    const option = document.createElement('option');
+    option.value = section.id;
+    option.textContent = section.title;
+    select.append(option);
+  });
+  select.value = previous;
+}
+
+// Список тем зависит от выбранного класса — так проще найти нужный
+// тест, когда тем в базе много (без выбора класса список был бы
+// огромным и малополезным).
+function populateTopicFilter() {
+  const sectionSelect = document.querySelector('select[name="filterSection"]');
+  const topicSelect = document.querySelector('select[name="filterTopic"]');
+  const previous = topicSelect.value;
+  const sectionValue = sectionSelect.value;
+
+  const relevant = sectionValue ? testsCache.filter(function (t) { return t.section === sectionValue; }) : testsCache;
+  const topics = Array.from(new Set(relevant.map(function (t) { return t.topic; }))).sort(function (a, b) {
+    return a.localeCompare(b, 'ru');
+  });
+
+  topicSelect.innerHTML = '<option value="">Все темы</option>';
+  topics.forEach(function (topic) {
+    const option = document.createElement('option');
+    option.value = topic;
+    option.textContent = topic;
+    topicSelect.append(option);
+  });
+  topicSelect.value = topics.indexOf(previous) !== -1 ? previous : '';
+}
+
+function applyTestsFilters() {
+  const search = document.querySelector('input[name="search"]').value.trim().toLowerCase();
+  const sectionValue = document.querySelector('select[name="filterSection"]').value;
+  const topicValue = document.querySelector('select[name="filterTopic"]').value;
+
+  const filtered = testsCache.filter(function (test) {
+    if (sectionValue && test.section !== sectionValue) return false;
+    if (topicValue && test.topic !== topicValue) return false;
+    if (search && test.title.toLowerCase().indexOf(search) === -1) return false;
+    return true;
+  });
+
+  renderTestsList(filtered);
+}
+
+function renderTestsList(tests) {
+  const list = document.querySelector('.tests-list');
+  const countEl = document.querySelector('.tests-count');
   list.textContent = '';
 
-  if (!tests || tests.length === 0) {
+  if (testsCache.length === 0) {
+    countEl.textContent = '';
     list.textContent = 'Тестов пока нет — добавьте первый.';
+    return;
+  }
+
+  countEl.textContent = 'Найдено: ' + tests.length + ' из ' + testsCache.length;
+
+  if (tests.length === 0) {
+    list.textContent = 'Ничего не найдено — попробуйте изменить фильтры.';
     return;
   }
 
@@ -149,6 +219,15 @@ async function showTestsView() {
     list.append(row);
   });
 }
+
+document.querySelector('input[name="search"]').addEventListener('input', applyTestsFilters);
+
+document.querySelector('select[name="filterSection"]').addEventListener('change', function () {
+  populateTopicFilter();
+  applyTestsFilters();
+});
+
+document.querySelector('select[name="filterTopic"]').addEventListener('change', applyTestsFilters);
 
 document.querySelector('.add-test-button').addEventListener('click', function () {
   showTestForm(null);
