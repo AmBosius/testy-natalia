@@ -46,6 +46,14 @@ function parseCorrespondence(text) {
   return { intro: intro, letters: letters, numbers: numbers, trailing: trailing };
 }
 
+// Отрывки с нумерацией предложений «(1)Текст... (2)Текст...» в исходных
+// данных идут одним сплошным абзацем без переносов — читать длинный текст
+// так неудобно. Разбиваем визуально: каждое пронумерованное предложение
+// с новой строки (сами данные не трогаем, только то, что видит ученик).
+function formatPassage(text) {
+  return text.replace(/ (\(\d{1,3}\))(?=\S)/g, '\n$1');
+}
+
 function renderCorrespondenceTable(parsed) {
   const wrap = document.createElement('div');
   wrap.className = 'correspondence';
@@ -102,7 +110,7 @@ function renderQuestion(question, index) {
   if (question.passage) {
     const passage = document.createElement('p');
     passage.className = 'question__passage';
-    passage.textContent = question.passage;
+    passage.textContent = formatPassage(question.passage);
     body.append(passage);
   }
 
