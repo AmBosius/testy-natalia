@@ -81,6 +81,8 @@
 }
 
 .field__input {
+  width: 100%;
+  min-width: 0;
   padding: 10px 14px;
   border: 1px solid var(--line);
   border-radius: 10px;
